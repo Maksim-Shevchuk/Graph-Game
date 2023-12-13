@@ -1,0 +1,13 @@
+<Project Sdk="Godot.NET.Sdk/4.2.0-beta.1">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net7.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'ios' ">net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <RootNamespace>GraphGame</RootNamespace>
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+      <PackageReference Include="MathParser.org-mXparser" Version="5.2.1"/> 
+  </ItemGroup>
+</Project>

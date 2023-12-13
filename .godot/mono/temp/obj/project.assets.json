@@ -1,0 +1,216 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "Godot.SourceGenerators/4.2.0-beta.1": {
+        "type": "package",
+        "build": {
+          "build/Godot.SourceGenerators.props": {}
+        }
+      },
+      "GodotSharp/4.2.0-beta.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/GodotSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/GodotSharp.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "GodotSharpEditor/4.2.0-beta.1": {
+        "type": "package",
+        "dependencies": {
+          "GodotSharp": "4.2.0-beta.1"
+        },
+        "compile": {
+          "lib/net6.0/GodotSharpEditor.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/GodotSharpEditor.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MathParser.org-mXparser/5.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/MathParser.org-mXparser.dll": {
+            "related": ".deps.json"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MathParser.org-mXparser.dll": {
+            "related": ".deps.json"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Godot.SourceGenerators/4.2.0-beta.1": {
+      "sha512": "Ap+rsnmUIHKDY2OemiiLlb2lICFyM59jTaV/i25P5M3qk/9iUsxNiTkdJPthu/xkAEaZ/bEX/XG3p5Pm1ZVEiQ==",
+      "type": "package",
+      "path": "godot.sourcegenerators/4.2.0-beta.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/Godot.SourceGenerators.dll",
+        "build/Godot.SourceGenerators.props",
+        "godot.sourcegenerators.4.2.0-beta.1.nupkg.sha512",
+        "godot.sourcegenerators.nuspec"
+      ]
+    },
+    "GodotSharp/4.2.0-beta.1": {
+      "sha512": "Io71Y+VtqGlMX97f85X1O4WoFlJzVGoMcI+Oj8TIJQbaKF+ihffhgh9XZ11EvDDEbGtAOwVtSgtLdIwuF8FjsA==",
+      "type": "package",
+      "path": "godotsharp/4.2.0-beta.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "godotsharp.4.2.0-beta.1.nupkg.sha512",
+        "godotsharp.nuspec",
+        "lib/net6.0/GodotSharp.dll",
+        "lib/net6.0/GodotSharp.xml"
+      ]
+    },
+    "GodotSharpEditor/4.2.0-beta.1": {
+      "sha512": "e3v6ZoW22v2NH1+WT+CzQnbRhsFF3Bf0ehxPOSz10KChooqLqqoJmw4gypt80cx0GwFJAwXoM/5MvfPtUxrZag==",
+      "type": "package",
+      "path": "godotsharpeditor/4.2.0-beta.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "godotsharpeditor.4.2.0-beta.1.nupkg.sha512",
+        "godotsharpeditor.nuspec",
+        "lib/net6.0/GodotSharpEditor.dll",
+        "lib/net6.0/GodotSharpEditor.xml"
+      ]
+    },
+    "MathParser.org-mXparser/5.2.1": {
+      "sha512": "UZxx6OpGB7sv5zgGssw+8GfGImoPJbJqe8d5f3dj2+Et6V7RLLQLBdSQPmgWVHruSMXRWx6aE88XLzKzaO9n4w==",
+      "type": "package",
+      "path": "mathparser.org-mxparser/5.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.txt",
+        "images/icon.png",
+        "lib/net35/MathParser.org-mXparser.dll",
+        "lib/net40/MathParser.org-mXparser.dll",
+        "lib/net45/MathParser.org-mXparser.dll",
+        "lib/net461/MathParser.org-mXparser.dll",
+        "lib/net6.0/MathParser.org-mXparser.deps.json",
+        "lib/net6.0/MathParser.org-mXparser.dll",
+        "lib/netstandard20/MathParser.org-mXparser.deps.json",
+        "lib/netstandard20/MathParser.org-mXparser.dll",
+        "lib/netstandard21/MathParser.org-mXparser.deps.json",
+        "lib/netstandard21/MathParser.org-mXparser.dll",
+        "mathparser.org-mxparser.5.2.1.nupkg.sha512",
+        "mathparser.org-mxparser.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "Godot.SourceGenerators >= 4.2.0-beta.1",
+      "GodotSharp >= 4.2.0-beta.1",
+      "GodotSharpEditor >= 4.2.0-beta.1",
+      "MathParser.org-mXparser >= 5.2.1"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Максим\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\GameFactory\\GraphGame\\Graph Game.csproj",
+      "projectName": "Graph Game",
+      "projectPath": "D:\\GameFactory\\GraphGame\\Graph Game.csproj",
+      "packagesPath": "C:\\Users\\Максим\\.nuget\\packages\\",
+      "outputPath": "D:\\GameFactory\\GraphGame\\.godot\\mono\\temp\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Максим\\AppData\\Roaming\\NuGet\\NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "dependencies": {
+          "Godot.SourceGenerators": {
+            "target": "Package",
+            "version": "[4.2.0-beta.1, )"
+          },
+          "GodotSharp": {
+            "target": "Package",
+            "version": "[4.2.0-beta.1, )"
+          },
+          "GodotSharpEditor": {
+            "target": "Package",
+            "version": "[4.2.0-beta.1, )"
+          },
+          "MathParser.org-mXparser": {
+            "target": "Package",
+            "version": "[5.2.1, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.23, 6.0.23]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.23, 6.0.23]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.23, 6.0.23]"
+          }
+        ],
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

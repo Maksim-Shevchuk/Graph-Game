@@ -1,0 +1,175 @@
+[gd_scene load_steps=14 format=3 uid="uid://c4j72wt8cwxu1"]
+
+[ext_resource type="Script" path="res://scripts/control/ControlScene.cs" id="1_ovrdh"]
+[ext_resource type="Script" path="res://scripts/control/play_area/PlayArea.cs" id="2_mjqy1"]
+[ext_resource type="Script" path="res://scripts/control/graph_container/GraphContainer.cs" id="3_wil0v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lrpil"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rnh0"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3a8wp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o15pg"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_64ljw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvmjf"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixq2q"]
+bg_color = Color(0.254902, 0.254902, 0.254902, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_flhca"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jq3c4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhcch"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+
+[node name="Control" type="Control" node_paths=PackedStringArray("playArea")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_ovrdh")
+playArea = NodePath("PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lrpil")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LeftColumnContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(510, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0rnh0")
+
+[node name="GameContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3a8wp")
+
+[node name="PlayAreaContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/GameContainer" node_paths=PackedStringArray("lineEdit")]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("2_mjqy1")
+lineEdit = NodePath("ButtonsContainer/PanelContainer/InputContainer/LineEdit")
+
+[node name="Panel" type="Panel" parent="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o15pg")
+
+[node name="GraphContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer" node_paths=PackedStringArray("levelEndedContainer", "winOrLooseLabel")]
+custom_minimum_size = Vector2(900, 900)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_64ljw")
+script = ExtResource("3_wil0v")
+levelEndedContainer = NodePath("PanelContainer")
+winOrLooseLabel = NodePath("PanelContainer/VBoxContainer/Label")
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/GraphContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/GraphContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/GraphContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Text"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/GraphContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/GraphContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="Home" type="Button" parent="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/GraphContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Home"
+
+[node name="Next" type="Button" parent="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/GraphContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Next"
+
+[node name="Panel2" type="Panel" parent="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o15pg")
+
+[node name="ButtonsContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_dvmjf")
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/ButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ixq2q")
+
+[node name="InputContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/ButtonsContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/ButtonsContainer/PanelContainer/InputContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 28
+text = " > "
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/ButtonsContainer/PanelContainer/InputContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_flhca")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jq3c4")
+
+[node name="Button" type="Button" parent="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/ButtonsContainer/PanelContainer/InputContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "run"
+
+[node name="RightColumnContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(510, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hhcch")
+
+[connection signal="pressed" from="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Restart" to="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer" method="OnRestartPressed" flags=18]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Restart" to="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/GraphContainer" method="OnRestartPressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Next" to="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/GraphContainer" method="OnNextPressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer/ButtonsContainer/PanelContainer/InputContainer/Button" to="PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer" method="OnRunButtonPressed" flags=18]

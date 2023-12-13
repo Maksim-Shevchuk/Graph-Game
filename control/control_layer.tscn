@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bswuj1bgn7ma5"]
+
+[ext_resource type="PackedScene" uid="uid://c4j72wt8cwxu1" path="res://control/control.tscn" id="1_08ttn"]
+[ext_resource type="Script" path="res://scripts/control/ControlLayer.cs" id="1_vok2x"]
+
+[node name="ControlLayer" type="CanvasLayer" node_paths=PackedStringArray("controlScene")]
+layer = 100
+script = ExtResource("1_vok2x")
+controlScene = NodePath("Control")
+
+[node name="Control" parent="." instance=ExtResource("1_08ttn")]
+mouse_filter = 2
