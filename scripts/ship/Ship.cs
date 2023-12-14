@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,7 +6,7 @@ namespace GraphGame;
 
 public partial class Ship : CharacterBody2D
 {
-	private static Ship instance = new();
+	private static Ship instance;
 	private ShipModel model = ShipModel.Instance;
 	private ShipController controller = ShipController.Instance;
 	public const float Speed = 5f;
@@ -21,15 +20,24 @@ public partial class Ship : CharacterBody2D
 
 	public override void _Ready()
 	{
+		instance = this;
 		model.ModelUpdated += UpdateView;
 		model.PathBuilt += SetPath;
 		SetPhysicsProcess(false);
 	}
+
+	public override void _ExitTree()
+	{
+		model.ModelUpdated -= UpdateView;
+		model.PathBuilt -= SetPath;
+	}
+
 	public void UpdateView(Vector2 vector)
 	{
 		Position = CoordsUtils.ToScreenCoords(vector);
 		target = Position;
 	}
+
 	private void SetPath(Queue<Vector2> path)
 	{
 		this.path = path;
@@ -59,29 +67,13 @@ public partial class Ship : CharacterBody2D
 			fromPos = Position;
 			timelerped = 0;
 			return true;
-		} else if(!path.Any())
+		}
+		else if (!path.Any())
 		{
 			controller.ShipFinsishedMoving();
 		}
 		return false;
 	}
-
-
-	// public void MoveToCheckpoint()
-	// {
-	// 	int i = 1;
-	// 	Vector2 toMove = CoordsUtils.ToScreenCoords(controller.FindIthPosition(i));
-	// 	while (gamaAreaRect.HasPoint(toMove))
-	// 	{
-	// 		Tween tween = CreateTween().SetTrans(Tween.TransitionType.Quint).SetEase(Tween.EaseType.InOut);
-	// 		tween.TweenProperty(this, "position", toMove, 1);
-	// 		double rotation = Position.DirectionTo(toMove).Angle() + Math.PI / 2.0;
-	// 		tween.Parallel().TweenProperty(this, "rotation", rotation, 0.5);
-	// 		toMove = CoordsUtils.ToScreenCoords(controller.FindIthPosition(i));
-	// 		i++;
-	// 		GD.Print(CoordsUtils.ToWorldCoords(toMove).ToString());
-	// 	}
-	// }
 
 	public static Ship Instance { get => instance; }
 }

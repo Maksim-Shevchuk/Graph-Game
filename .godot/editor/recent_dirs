@@ -1,6 +1,6 @@
+res://control
 res://scripts/control/graph_container
 res://scripts/plot/checkpoint_storage/checkpoint
-res://control
 res://scripts/plot
 res://plot/checkpoint
 res://Assets/Checkpoint

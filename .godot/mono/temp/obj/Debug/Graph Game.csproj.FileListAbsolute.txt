@@ -16,3 +16,4 @@ D:\GameFactory\GraphGame\.godot\mono\temp\obj\Debug\Graph Game.pdb
 D:\GameFactory\GraphGame\.godot\mono\temp\obj\Debug\Graph Game.genruntimeconfig.cache
 D:\GameFactory\GraphGame\.godot\mono\temp\obj\Debug\ref\Graph Game.dll
 D:\GameFactory\GraphGame\.godot\mono\temp\bin\Debug\MathParser.org-mXparser.dll
+D:\GameFactory\GraphGame\.godot\mono\temp\obj\Debug\Graph Game.sourcelink.json

@@ -1,7 +1,5 @@
 using Godot;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace GraphGame;
 
@@ -17,9 +15,20 @@ public partial class CheckPointStorage : Node2D
 
 	public override void _Ready()
 	{
+		foreach (Node node in GetChildren())
+		{
+			node.QueueFree();
+		}
+		instance = this;
 		checkPointsViews = [];
 		model.AddCheckPointWithLabel += AddCheckPoints;
 		model.CheckPointChangeVisibility += CheckPointVisibilityChanged;
+	}
+
+	public override void _ExitTree()
+	{
+		model.AddCheckPointWithLabel -= AddCheckPoints;
+		model.CheckPointChangeVisibility -= CheckPointVisibilityChanged;
 	}
 
 	private void AddCheckPoints(List<CheckPointNodeModel> checkPointsModels, List<Vector2> checkPointCoords)
@@ -44,5 +53,5 @@ public partial class CheckPointStorage : Node2D
 		tooltip.Visible = isVisible;
 	}
 
-	public static CheckPointStorage Instance { get => instance ??= new(); }
+	public static CheckPointStorage Instance { get => instance; }
 }

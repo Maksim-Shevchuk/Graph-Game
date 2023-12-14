@@ -7,7 +7,7 @@ namespace GraphGame;
 
 public class CheckPointStorageModel
 {
-    private static CheckPointStorageModel instance = new();
+    private static CheckPointStorageModel instance;
     private List<CheckPointNodeModel> checkPointNodeModels;
     private List<Vector2> _checkPointCoords;
 
@@ -47,5 +47,5 @@ public class CheckPointStorageModel
         GraphContainerModel.Instance.LevelEnded(contains);
     }
 
-    public static CheckPointStorageModel Instance { get => instance; }
+    public static CheckPointStorageModel Instance { get => instance ??= new(); }
 }

@@ -8,7 +8,7 @@ public partial class GraphContainerController
 
     public void OnRestartPressed()
     {
-        model.RestartGame();
+        model.RestartLevel();
     }
 
     public void OnNextPressed()

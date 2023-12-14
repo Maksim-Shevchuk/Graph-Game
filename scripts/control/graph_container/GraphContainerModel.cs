@@ -5,7 +5,7 @@ using System;
 public partial class GraphContainerModel
 {
 	private static GraphContainerModel instance;
-	private Game levelLoader = Game.Instance;
+	private Game levelLoader;
 	private int _interval;
 	private int _margin;
 	private Vector2 leftUpperCorner;
@@ -20,6 +20,7 @@ public partial class GraphContainerModel
 		_margin = margin;
 		float rectLength = Mathf.Round(900 / (float)_interval);
 		graphContainerRect = new(leftUpperCorner, new(rectLength, rectLength));
+		levelLoader  = Game.Instance;
 	}
 
 	public bool HasPoint(Vector2 point)
@@ -32,10 +33,9 @@ public partial class GraphContainerModel
 		ShowLevelEndMenu?.Invoke(isWin);
 	}
 
-	public void RestartGame()
+	public void RestartLevel()
 	{
 		levelLoader.RestartLevel();
-		// Game.Instance.Init("scripts/level/json/level2.json");
 	}
 
 	public void LoadNextLevel()

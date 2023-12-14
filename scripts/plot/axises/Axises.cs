@@ -7,8 +7,7 @@ namespace GraphGame;
 public partial class Axises : Node2D
 {
 	private static Axises instance;
-	// private AxisesModel model = AxisesModel.Instance;
-	private static int margin ;
+	private static int margin;
 	private static int interval;
 	private static readonly Vector2 boundPosition = new(510, 935);
 	private static int containerSideLength = 900 - 10;
@@ -24,12 +23,7 @@ public partial class Axises : Node2D
 		DrawArrow(startPosition, toY);
 		DrawArrow(startPosition, toX);
 		DrawScaleLines(interval);
-		// DrawArrow(model.StartPosition, model.ToY);
-		// DrawArrow(model.StartPosition, model.ToX);
-		// DrawScaleLines(model.Interval);
 	}
-
-	// public Axises(AxisesModel model) { this.model = model; }
 
 	public void Init(int Margin, int Interval)
 	{

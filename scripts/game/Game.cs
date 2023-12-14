@@ -1,4 +1,3 @@
-using System;
 using Godot;
 using org.mariuszgromada.math.mxparser;
 
@@ -14,14 +13,15 @@ public partial class Game : Node2D
 
 	[Export] private ControlLayer _controlLayer;
 	private static int level = 2;
-	private string levelPath = string.Format("scripts/level/json/level{0}.json", level);
+	private string levelPath => $"scripts/level/json/level{level}.json";
 	public override void _Ready()
 	{
+		instance = this;
 		License.iConfirmNonCommercialUse("GraphGame");
 		Init();
 	}
 
-	public void Init()
+	private void Init()
 	{
 		LevelInfo levelInfo = JsonSerializerUtils.DeserializeLevelInfo(levelPath);
 		CoordsUtils.Init(levelInfo.Margin, levelInfo.Interval);
@@ -33,23 +33,23 @@ public partial class Game : Node2D
 
 	public void RestartLevel()
 	{
-		GD.Print(level);
 		GetTree().ReloadCurrentScene();
 	}
 
 	public void NextLevel()
 	{
 		level++;
-		GD.Print(level);
-		GetTree().ReloadCurrentScene();
+		RestartLevel();
 	}
 
-	private Game() { }
-
-	public static Game Instance { get => instance ??= new(); }
-	public static int Level
+	public static Game Instance => instance;
+	public int Level
 	{
 		get => level;
-		set => level = value;
+		set
+		{
+			level = value;
+			// RestartLevel();
+		}
 	}
 }
