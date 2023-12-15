@@ -28,9 +28,10 @@ public class JsonSerializerUtils
 
     private static LevelInfo ToLevelInfo(LevelInfoDto dto)
     {
-        LevelInfo levelInfo = new(dto.Id, dto.Interval, dto.Margin, new(dto.StartPosition["x"], dto.StartPosition["y"]))
+        LevelInfo levelInfo = new(dto.Id, dto.Interval, dto.Margin, new(dto.StartPosition["x"], dto.StartPosition["y"]), dto.ExtraInputEnabled)
         {
-            CheckpointCoords = ToCheckPointCoords(dto.CheckpointDictCoords)
+            CheckpointCoords = ToCheckPointCoords(dto.CheckpointDictCoords),
+            ObstacleCoords = ToObstacleCoords(dto.ObstacleDictCoords)
         };
         return levelInfo;
     }
@@ -38,9 +39,10 @@ public class JsonSerializerUtils
     private static LevelInfoDto ToLevelInfoDto(LevelInfo levelInfo)
     {
         LevelInfoDto dto = new(levelInfo.Id, levelInfo.Interval, levelInfo.Margin,
-            new Dictionary<string, float>() { { "x", levelInfo.StartPosition.X }, { "y", levelInfo.StartPosition.Y } })
+            new Dictionary<string, float>() { { "x", levelInfo.StartPosition.X }, { "y", levelInfo.StartPosition.Y } }, levelInfo.ExtraInputEnabled)
         {
-            CheckpointDictCoords = ToCheckPointDictCoords(levelInfo.CheckpointCoords)
+            CheckpointDictCoords = ToCheckPointDictCoords(levelInfo.CheckpointCoords),
+            ObstacleDictCoords = ToObstacleDictCoords(levelInfo.ObstacleCoords)
         };
         return dto;
     }
@@ -56,5 +58,18 @@ public class JsonSerializerUtils
             {"x", v.X}, {"y", v.Y}
          }).ToList();
         return checkPointCoords.Select(v => new Dictionary<string, float> { { "x", v.X }, { "y", v.Y } }).ToList();
+    }
+
+    private static List<Vector2> ToObstacleCoords(List<Dictionary<string, float>> obstacleDictCoords)
+    {
+        return obstacleDictCoords.Select(dict => new Vector2(dict["x"], dict["y"])).ToList();
+    }
+
+    private static List<Dictionary<string, float>> ToObstacleDictCoords(List<Vector2> obstacleCoords)
+    {
+        List<Dictionary<string, float>> dictCoords = obstacleCoords.Select(v => new Dictionary<string, float>{
+            {"x", v.X}, {"y", v.Y}
+         }).ToList();
+        return obstacleCoords.Select(v => new Dictionary<string, float> { { "x", v.X }, { "y", v.Y } }).ToList();
     }
 }

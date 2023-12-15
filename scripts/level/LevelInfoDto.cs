@@ -10,31 +10,34 @@ public class LevelInfoDto
     private int _margin;
     private Dictionary<string, float> _startPosition;
     private List<Dictionary<string, float>> _checkpointDictCoords;
+    private List<Dictionary<string, float>> _obstacleDictCoords;
+    private bool _extraInputEnabled;
 
-    public LevelInfoDto(int id, int interval, int margin, Dictionary<string, float> startPosition)
+    public LevelInfoDto(int id, int interval, int margin, Dictionary<string, float> startPosition, bool extraInputEnabled)
     {
         _id = id;
         _interval = interval;
         _margin = margin;
         _startPosition = startPosition;
+        _extraInputEnabled = extraInputEnabled;
     }
 
     public int Id
     {
-        get { return _id; }
-        set { _id = Id; }
+        get => _id; 
+        set => _id = Id; 
     }
 
     public int Interval
     {
-        get { return _interval; }
-        set { _interval = value; }
+        get => _interval; 
+        set => _interval = value; 
     }
 
     public int Margin
     {
-        get { return _margin; }
-        set { _margin = value; }
+        get => _margin; 
+        set => _margin = value; 
     }
 
     public Dictionary<string, float> StartPosition
@@ -45,7 +48,19 @@ public class LevelInfoDto
 
     public List<Dictionary<string, float>> CheckpointDictCoords
     {
-        get { return _checkpointDictCoords; }
-        set { _checkpointDictCoords = value; }
+        get => _checkpointDictCoords; 
+        set => _checkpointDictCoords = value; 
+    }
+
+    public List<Dictionary<string, float>> ObstacleDictCoords
+    {
+        get => _obstacleDictCoords;
+        set => _obstacleDictCoords = value;
+    }
+
+    public bool ExtraInputEnabled 
+    {
+        get => _extraInputEnabled;
+        set => _extraInputEnabled = value;
     }
 }

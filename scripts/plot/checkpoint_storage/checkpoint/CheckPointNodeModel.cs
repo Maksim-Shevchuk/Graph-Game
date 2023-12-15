@@ -17,9 +17,4 @@ public partial class CheckPointNodeModel
     {
         _storageModel.ChangeCheckPointVisibility(position, false);
     }
-
-    public void CheckIsRemoving(Vector2 position)
-    {
-
-    }
 }

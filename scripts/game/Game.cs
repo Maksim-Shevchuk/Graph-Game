@@ -12,7 +12,7 @@ public partial class Game : Node2D
 	[Export] private PlotLayer _plotLayer;
 
 	[Export] private ControlLayer _controlLayer;
-	private static int level = 2;
+	private static int level = 3;
 	private string levelPath => $"scripts/level/json/level{level}.json";
 	public override void _Ready()
 	{
@@ -25,9 +25,9 @@ public partial class Game : Node2D
 	{
 		LevelInfo levelInfo = JsonSerializerUtils.DeserializeLevelInfo(levelPath);
 		CoordsUtils.Init(levelInfo.Margin, levelInfo.Interval);
-		_plotLayer.Init(levelInfo.Margin, levelInfo.Interval, levelInfo.CheckpointCoords);
-		_controlLayer.Init();
-		GraphContainerModel.Instance.Init(levelInfo.Interval, levelInfo.Margin);
+		_plotLayer.Init(levelInfo.Margin, levelInfo.Interval, levelInfo.CheckpointCoords, levelInfo.ObstacleCoords);
+		_controlLayer.Init(levelInfo.ExtraInputEnabled);
+		GraphContainerModel.Instance.Init(levelInfo.Interval);
 		ShipModel.Instance.Init(levelInfo.StartPosition);
 	}
 

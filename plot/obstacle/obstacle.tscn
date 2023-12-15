@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://dslgre30o554v"]
+
+[ext_resource type="Script" path="res://scripts/plot/checkpoint_storage/obstacle/Obstacle.cs" id="1_p2rs5"]
+[ext_resource type="Texture2D" uid="uid://bheqktoravcc4" path="res://Assets/Obstacle/Asteroid 01 - Explode.png" id="2_842tf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iti1l"]
+atlas = ExtResource("2_842tf")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1sn6"]
+atlas = ExtResource("2_842tf")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snlo4"]
+atlas = ExtResource("2_842tf")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yg26u"]
+atlas = ExtResource("2_842tf")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdsvu"]
+atlas = ExtResource("2_842tf")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fifgw"]
+atlas = ExtResource("2_842tf")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anmnm"]
+atlas = ExtResource("2_842tf")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do67q"]
+atlas = ExtResource("2_842tf")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b7xay"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iti1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1sn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snlo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yg26u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdsvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fifgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anmnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_do67q")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vjmvx"]
+radius = 18.6815
+
+[node name="Obstacle" type="Area2D" node_paths=PackedStringArray("asteroid")]
+scale = Vector2(0.705, 0.705)
+script = ExtResource("1_p2rs5")
+asteroid = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_b7xay")
+animation = &"explode"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vjmvx")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
+[connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="." to="." method="OnMouseExited"]

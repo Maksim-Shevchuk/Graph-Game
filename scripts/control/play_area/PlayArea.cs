@@ -1,10 +1,12 @@
 using Godot;
 using GraphGame;
 using System;
+using System.Text.RegularExpressions;
 
 public partial class PlayArea : VBoxContainer
 {
-	[Export] private LineEdit lineEdit;
+	[Export] private LineEdit functionLineEdit;
+	[Export] private HBoxContainer expandedInput;
 	private static PlayArea instance;
 	private PlayAreaModel model = PlayAreaModel.Instance;
 	private PlayAreaController controller = PlayAreaController.Instance;
@@ -15,15 +17,32 @@ public partial class PlayArea : VBoxContainer
 
 	public override void _Ready()
 	{
-		lineEdit.GrabFocus();
+		functionLineEdit.GrabFocus();
+		expandedInput.Visible = false;
+		model.ChangeVisibilityExpandedInput += ChangeVisibilityExpandedInput;
+	}
+
+	public override void _ExitTree()
+	{
+		model.ChangeVisibilityExpandedInput -= ChangeVisibilityExpandedInput;
 	}
 
 	private void OnRunButtonPressed()
 	{
-		if (!string.IsNullOrEmpty(lineEdit.Text))
+		if (!string.IsNullOrEmpty(functionLineEdit.Text))
 		{
-			controller.HandleRunButtonPressed(lineEdit.Text.Replace("\\s", ""));
+			Regex functionRegex = new("^y=x?.+");
+			string text = functionLineEdit.Text.Replace("\\s", "").ToLower();
+			if (functionRegex.Matches(text).Count > 0)
+			{
+				controller.HandleRunButtonPressed(text);
+			}
 		}
+	}
+
+	private void ChangeVisibilityExpandedInput(bool isExpandedInputVisible)
+	{
+		expandedInput.Visible = isExpandedInputVisible;
 	}
 
 	public static PlayArea Instance { get => instance ??= new(); }

@@ -7,11 +7,16 @@ public partial class PlayAreaModel
 {
     private static PlayAreaModel instance = new();
     private static ShipModel shipModel = ShipModel.Instance;
-
+    private bool _isExpandedInputVisible;
+    public event Action<bool> ChangeVisibilityExpandedInput;
     private PlayAreaModel() { }
 
 
-    public void Init() { }
+    public void Init(bool isExpandedInputVisible)
+    {
+        _isExpandedInputVisible = isExpandedInputVisible;
+        ChangeVisibilityExpandedInput?.Invoke(_isExpandedInputVisible);
+    }
 
     public void HandleMathExpression(string mathExp)
     {

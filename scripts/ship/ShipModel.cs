@@ -15,6 +15,7 @@ public partial class ShipModel
 
     public event Action<Vector2> ModelUpdated;
     public event Action<Queue<Vector2>> PathBuilt;
+    public event Action ModelDestroyed;
     private ShipModel() { }
 
     public void Init(Vector2 startPosition)
@@ -44,6 +45,12 @@ public partial class ShipModel
         }
 
         PathBuilt?.Invoke(new Queue<Vector2>(path));
+    }
+
+    public bool ContainsInPath(Vector2 position)
+    {
+        ModelDestroyed?.Invoke();
+        return path.Contains(position);
     }
 
     public void MovementStopped()

@@ -22,7 +22,8 @@ public partial class Ship : CharacterBody2D
 	{
 		instance = this;
 		model.ModelUpdated += UpdateView;
-		model.PathBuilt += SetPath;
+		model.PathBuilt += SetPath;;
+		model.ModelDestroyed += DestroyShip;
 		SetPhysicsProcess(false);
 	}
 
@@ -30,6 +31,7 @@ public partial class Ship : CharacterBody2D
 	{
 		model.ModelUpdated -= UpdateView;
 		model.PathBuilt -= SetPath;
+		model.ModelDestroyed += DestroyShip;
 	}
 
 	public void UpdateView(Vector2 vector)
@@ -42,6 +44,11 @@ public partial class Ship : CharacterBody2D
 	{
 		this.path = path;
 		SetPhysicsProcess(true);
+	}
+
+	private void DestroyShip()
+	{
+		path = [];
 	}
 
 	public override void _PhysicsProcess(double delta)

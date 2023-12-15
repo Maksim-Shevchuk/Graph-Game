@@ -7,9 +7,9 @@ public partial class ControlLayer : CanvasLayer
 	private static ControlLayer instance;
 	private ControlLayer() { }
 
-	public void Init()
+	public void Init(bool extraInputEnabled)
 	{
-		controlScene.Init();
+		controlScene.Init(extraInputEnabled);
 	}
 	
 	public static ControlLayer Instance { get => instance ??= new(); }

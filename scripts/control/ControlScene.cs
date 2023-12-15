@@ -10,9 +10,9 @@ public partial class ControlScene : Control
 	private ControlScene() { }
 	private PlayAreaModel playAreaModel = PlayAreaModel.Instance;
 
-	public void Init()
+	public void Init(bool extraInputEnabled)
 	{
-		playAreaModel.Init();
+		playAreaModel.Init(extraInputEnabled);
 	}
 
 	public override void _UnhandledInput(InputEvent @event) { }
