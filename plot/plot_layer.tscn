@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dh0cglmmhfvrw"]
+[gd_scene load_steps=6 format=3 uid="uid://dh0cglmmhfvrw"]
 
 [ext_resource type="Script" path="res://scripts/plot/PlotLayer.cs" id="1_gnbyo"]
 [ext_resource type="Script" path="res://scripts/plot/axises/Axises.cs" id="1_jv2pr"]
 [ext_resource type="Script" path="res://scripts/plot/checkpoint_storage/CheckPointStorage.cs" id="2_rqxwj"]
 [ext_resource type="PackedScene" uid="uid://drmjui1dyc2a7" path="res://plot/checkpoint/check_point.tscn" id="3_bu4ym"]
+[ext_resource type="PackedScene" uid="uid://dslgre30o554v" path="res://plot/obstacle/obstacle.tscn" id="5_es8xh"]
 
 [node name="PlotLayer" type="CanvasLayer"]
 script = ExtResource("1_gnbyo")
@@ -13,4 +14,5 @@ script = ExtResource("1_jv2pr")
 
 [node name="CheckPointStorage" type="Node2D" parent="."]
 script = ExtResource("2_rqxwj")
-packedScene = ExtResource("3_bu4ym")
+checkPointPackedScene = ExtResource("3_bu4ym")
+obstaclePackedScene = ExtResource("5_es8xh")

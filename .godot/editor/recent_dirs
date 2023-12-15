@@ -1,3 +1,6 @@
+res://Assets/Obstacle
+res://scripts/plot/checkpoint_storage
+res://plot/obstacle
 res://control
 res://scripts/control/graph_container
 res://scripts/plot/checkpoint_storage/checkpoint
