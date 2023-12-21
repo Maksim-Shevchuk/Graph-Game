@@ -35,3 +35,6 @@ texture = ExtResource("6_e5jyy")
 show_behind_parent = true
 position = Vector2(555, 73)
 color = Color(0.607843, 0.419608, 0.94902, 1)
+energy = 0.0
+range_layer_min = -5
+range_layer_max = 100
