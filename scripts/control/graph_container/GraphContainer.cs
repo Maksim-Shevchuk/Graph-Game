@@ -7,6 +7,8 @@ public partial class GraphContainer : PanelContainer
 	[Export] private PanelContainer levelEndedContainer;
 	[Export] private Label winOrLooseLabel;
 	[Export] private Button nextLevelButton;
+	[Export] private Label nextLevelLabel;
+	[Export] private PackedScene mainScene;
 	private GraphContainerModel model = GraphContainerModel.Instance;
 	private GraphContainerController controller = GraphContainerController.Instance;
 
@@ -26,14 +28,23 @@ public partial class GraphContainer : PanelContainer
 		controller.OnRestartPressed();
 	}
 
+	public void OnHomePressed()
+	{
+		GetTree().ChangeSceneToPacked(mainScene);
+	}
+
 	public void OnNextPressed()
 	{
 		controller.OnNextPressed();
 	}
 
 	private void ChangeVisibilityLevelEndedContainer(bool isWin)
-	{	
-		nextLevelButton.Visible = isWin;
+	{
+		nextLevelButton.Disabled = !isWin;
+		if (!isWin)
+		{
+			nextLevelLabel.Modulate = Colors.Gray;;
+		}
 		levelEndedContainer.Visible = true;
 		winOrLooseLabel.Text = isWin ? "You win!" : "You loose";
 	}

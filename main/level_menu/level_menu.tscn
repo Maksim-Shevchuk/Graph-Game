@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://cw6l7or73vqlt"]
+
+[ext_resource type="Script" path="res://scripts/main/level_menu/LevelMenu.cs" id="1_30o8a"]
+[ext_resource type="PackedScene" uid="uid://cco7bp0mbhqok" path="res://main/level_menu/level_button.tscn" id="2_4r3c5"]
+[ext_resource type="Texture2D" uid="uid://bkcm1tw7ajtrg" path="res://Assets/Ui/level_without_inputs.png" id="2_dvp7j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tnofa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1ije"]
+
+[node name="LevelMenu" type="Control" node_paths=PackedStringArray("levelsContainer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_30o8a")
+buttonPackedScene = ExtResource("2_4r3c5")
+levelsContainer = NodePath("HBoxContainer/MarginContainer/VBoxContainer/GridContainer")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dvp7j")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftColumn" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tnofa")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 140
+
+[node name="Control" type="Control" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 800)
+layout_mode = 2
+theme_override_constants/h_separation = 55
+theme_override_constants/v_separation = 40
+columns = 5
+
+[node name="RightColumn" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a1ije")

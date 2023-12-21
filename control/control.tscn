@@ -1,17 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://c4j72wt8cwxu1"]
 
 [ext_resource type="Script" path="res://scripts/control/ControlScene.cs" id="1_ovrdh"]
-[ext_resource type="PackedScene" uid="uid://co6pjad01lwv7" path="res://control/play_area_container.tscn" id="2_yqk7x"]
+[ext_resource type="PackedScene" uid="uid://csjac3bhrqyar" path="res://control/play_area_container.tscn" id="2_yqk7x"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lrpil"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rnh0"]
-bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f5rud"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3a8wp"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhcch"]
-bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2j1b"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("playArea")]
 layout_mode = 3
@@ -39,12 +37,12 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="LeftColumnContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer"]
-custom_minimum_size = Vector2(510, 0)
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0rnh0")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_f5rud")
 
 [node name="GameContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
@@ -57,9 +55,9 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_3a8wp")
 layout_mode = 2
 
 [node name="RightColumnContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer"]
-custom_minimum_size = Vector2(510, 0)
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_hhcch")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_t2j1b")

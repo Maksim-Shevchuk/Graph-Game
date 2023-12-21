@@ -1,5 +1,3 @@
-using System;
-using System.Security.Cryptography;
 using Godot;
 
 namespace GraphGame;
@@ -9,8 +7,8 @@ public partial class Axises : Node2D
 	private static Axises instance;
 	private static int margin;
 	private static int interval;
-	private static readonly Vector2 boundPosition = new(510, 935);
-	private static int containerSideLength = 900 - 10;
+	private static readonly Vector2 boundPosition = new(525, 945);
+	private static int containerSideLength = 900 - 70;
 	private static Vector2 startPosition;
 	private static Vector2 toY { get; set; }
 	private static Vector2 toX { get; set; }
@@ -30,7 +28,7 @@ public partial class Axises : Node2D
 		margin = Margin;
 		interval = Interval;
 		startPosition = new(boundPosition.X + margin, boundPosition.Y - margin);
-		toX = new(startPosition.X + containerSideLength - margin, startPosition.Y);
+		toX = new(startPosition.X + containerSideLength + 50 - margin, startPosition.Y);
 		toY = new(startPosition.X, startPosition.Y - containerSideLength + margin);
 		QueueRedraw();
 	}

@@ -1,0 +1,181 @@
+[gd_scene load_steps=11 format=3 uid="uid://da2iaajjlf2bw"]
+
+[ext_resource type="Script" path="res://scripts/main/main_menu/MainMenu.cs" id="1_wct35"]
+[ext_resource type="Texture2D" uid="uid://bkcm1tw7ajtrg" path="res://Assets/Ui/level_without_inputs.png" id="2_rcrw8"]
+[ext_resource type="Texture2D" uid="uid://du6j33ipah7xp" path="res://Assets/Ui/button.png" id="3_hjobj"]
+
+[sub_resource type="SystemFont" id="SystemFont_qr44v"]
+font_names = PackedStringArray("Impact")
+font_italic = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3y6c3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jh0w6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4qjnk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mhxym"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_de2e5"]
+
+[sub_resource type="SystemFont" id="SystemFont_a515u"]
+font_names = PackedStringArray("Impact")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wct35")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rcrw8")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 170
+
+[node name="Separator" type="Control" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = SubResource("SystemFont_qr44v")
+theme_override_font_sizes/font_size = 50
+text = "Graph Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Separator" type="Control" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(220, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3y6c3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jh0w6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4qjnk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mhxym")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_de2e5")
+text = "Play
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/PlayButton"]
+position = Vector2(114, 41)
+scale = Vector2(1.29885, 1)
+texture = ExtResource("3_hjobj")
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/PlayButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_a515u")
+theme_override_font_sizes/font_size = 35
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsButton" type="Button" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(220, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3y6c3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jh0w6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4qjnk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mhxym")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_de2e5")
+text = "Play
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/OptionsButton"]
+position = Vector2(114, 41)
+scale = Vector2(1.29885, 1)
+texture = ExtResource("3_hjobj")
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/OptionsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_a515u")
+theme_override_font_sizes/font_size = 35
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="Button" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(220, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3y6c3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jh0w6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4qjnk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mhxym")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_de2e5")
+text = "Play
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/QuitButton"]
+position = Vector2(114, 41)
+scale = Vector2(1.29885, 1)
+texture = ExtResource("3_hjobj")
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_a515u")
+theme_override_font_sizes/font_size = 35
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/PlayButton" to="." method="OnPlayButtonPressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/OptionsButton" to="." method="OnOptionsPressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="OnQuitButtonPressed"]

@@ -6,7 +6,6 @@ namespace GraphGame;
 public partial class AxisesModel
 {
     public event Action ModelUpadated;
-
     private int margin;
     private int interval;
     private Vector2 startPosition;
@@ -16,7 +15,7 @@ public partial class AxisesModel
     private  readonly int containerSideLength;
 
     public AxisesModel(int margin, int interval) {
-        boundPosition = new(510, 935);
+        boundPosition = new(510, 95);
         containerSideLength = 900 - 10;
         this.margin = margin;
         this.interval = interval;

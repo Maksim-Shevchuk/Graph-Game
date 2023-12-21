@@ -10,9 +10,9 @@ public partial class PlayAreaController
 
     private PlayAreaController() { }
 
-    public void HandleRunButtonPressed(string mathExpression)
+    public void HandleRunButtonPressed(string mathExpression, float xZero, float delta)
     {
-        model.HandleMathExpression(mathExpression);
+        model.HandleMathExpression(mathExpression, xZero , delta);
     }
 
 

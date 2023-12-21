@@ -10,13 +10,13 @@ public partial class MovementModel
     private float xBorder;
 
     private int N = 0;
-    
+
     private float Xn = 0;
 
     private Argument x = new("x");
     private Argument y;
 
-    public MovementModel(string mathExp, float increment =0.1f, float xBorder = 0f)
+    public MovementModel(string mathExp, float increment = 0.1f, float xBorder = 0f)
     {
         this.mathExp = mathExp;
         this.increment = increment;
@@ -31,5 +31,24 @@ public partial class MovementModel
         N = n;
         x.setArgumentValue(Xn);
         return new((float)x.getArgumentValue(), (float)y.getArgumentValue());
+    }
+
+    public float DefaultIncrement
+    {
+        get => 0.1f;
+    }
+
+    public float Increment
+    {
+        get => increment;
+        set => increment = value;
+    }
+    public float XBorder
+    {
+        set
+        {
+            xBorder = value;
+            Xn = xBorder;
+        }
     }
 }

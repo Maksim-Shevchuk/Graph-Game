@@ -9,7 +9,7 @@ public partial class Ship : CharacterBody2D
 	private static Ship instance;
 	private ShipModel model = ShipModel.Instance;
 	private ShipController controller = ShipController.Instance;
-	public const float Speed = 5f;
+	public float Speed = 5f;
 	private Queue<Vector2> path = [];
 	private Vector2 target;
 	private float targetAngle;
@@ -22,7 +22,7 @@ public partial class Ship : CharacterBody2D
 	{
 		instance = this;
 		model.ModelUpdated += UpdateView;
-		model.PathBuilt += SetPath;;
+		model.PathBuilt += SetPath;
 		model.ModelDestroyed += DestroyShip;
 		SetPhysicsProcess(false);
 	}

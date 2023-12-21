@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://cco7bp0mbhqok"]
+
+[ext_resource type="Script" path="res://scripts/main/level_menu/LevelButton.cs" id="1_57e57"]
+[ext_resource type="Texture2D" uid="uid://du6j33ipah7xp" path="res://Assets/Ui/button.png" id="1_itoj4"]
+[ext_resource type="PackedScene" uid="uid://bqtx7f66jbd1s" path="res://game/game.tscn" id="2_hc7ev"]
+
+[sub_resource type="SystemFont" id="SystemFont_ep0bq"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yk8ch"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0v0sg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1f3el"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ls8dl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjxq5"]
+
+[sub_resource type="SystemFont" id="SystemFont_q8piu"]
+font_names = PackedStringArray("Impact")
+
+[node name="Button" type="Button" node_paths=PackedStringArray("label")]
+custom_minimum_size = Vector2(134, 81)
+offset_right = 151.0
+offset_bottom = 85.0
+theme_override_fonts/font = SubResource("SystemFont_ep0bq")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yk8ch")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0v0sg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1f3el")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ls8dl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yjxq5")
+text = "level 1"
+script = ExtResource("1_57e57")
+label = NodePath("Label")
+packedScene = ExtResource("2_hc7ev")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(78, 45)
+texture = ExtResource("1_itoj4")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_q8piu")
+theme_override_font_sizes/font_size = 35
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="OnPressed"]

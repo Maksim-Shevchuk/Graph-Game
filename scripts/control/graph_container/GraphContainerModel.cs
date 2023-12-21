@@ -14,7 +14,7 @@ public partial class GraphContainerModel
 
 	public void Init(int interval)
 	{
-		leftUpperCorner = CoordsUtils.ToWorldCoords(new(510, 935));
+		leftUpperCorner = CoordsUtils.ToWorldCoords(new(525, 945));
 		_interval = interval;
 		float rectLength = Mathf.Round(900 / (float)_interval);
 		graphContainerRect = new(leftUpperCorner, new(rectLength, rectLength));

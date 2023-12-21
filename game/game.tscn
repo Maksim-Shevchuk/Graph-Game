@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqtx7f66jbd1s"]
+[gd_scene load_steps=6 format=3 uid="uid://bqtx7f66jbd1s"]
 
 [ext_resource type="Script" path="res://scripts/game/Game.cs" id="1_6vo0c"]
 [ext_resource type="PackedScene" uid="uid://bswuj1bgn7ma5" path="res://control/control_layer.tscn" id="1_o714x"]
 [ext_resource type="PackedScene" uid="uid://dh0cglmmhfvrw" path="res://plot/plot_layer.tscn" id="2_k47t7"]
 [ext_resource type="PackedScene" uid="uid://cinal1sfudbnd" path="res://ship/ship.tscn" id="4_si8mj"]
+[ext_resource type="Texture2D" uid="uid://cnmyyq6ipvw7e" path="res://Assets/Ui/level_with_2_inputs.png" id="5_uxfjb"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("_ship", "_plotLayer", "_controlLayer")]
 script = ExtResource("1_6vo0c")
 _ship = NodePath("Ship")
 _plotLayer = NodePath("PlotLayer")
 _controlLayer = NodePath("ControlLayer")
+metadata/_edit_vertical_guides_ = [2907.0]
 
 [node name="Ship" parent="." instance=ExtResource("4_si8mj")]
 position = Vector2(919, 574)
@@ -18,3 +20,13 @@ position = Vector2(919, 574)
 layer = -1
 
 [node name="ControlLayer" parent="." instance=ExtResource("1_o714x")]
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_uxfjb")

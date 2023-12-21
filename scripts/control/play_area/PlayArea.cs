@@ -7,11 +7,13 @@ public partial class PlayArea : VBoxContainer
 {
 	[Export] private LineEdit functionLineEdit;
 	[Export] private HBoxContainer expandedInput;
+	[Export] private LineEdit xZeroLineEdit;
+	[Export] private LineEdit deltaLineEdit;
+
 	private static PlayArea instance;
 	private PlayAreaModel model = PlayAreaModel.Instance;
 	private PlayAreaController controller = PlayAreaController.Instance;
 	private Ship shipView = Ship.Instance;
-
 
 	private PlayArea() { }
 
@@ -32,10 +34,12 @@ public partial class PlayArea : VBoxContainer
 		if (!string.IsNullOrEmpty(functionLineEdit.Text))
 		{
 			Regex functionRegex = new("^y=x?.+");
-			string text = functionLineEdit.Text.Replace("\\s", "").ToLower();
-			if (functionRegex.Matches(text).Count > 0)
+			string function = functionLineEdit.Text.Replace("\\s", "").ToLower();
+			if (functionRegex.Matches(function).Count > 0)
 			{
-				controller.HandleRunButtonPressed(text);
+				float xZero = string.IsNullOrEmpty(xZeroLineEdit.Text) ? float.NaN : float.Parse(xZeroLineEdit.Text.Replace(".", ","));
+				float delta = string.IsNullOrEmpty(deltaLineEdit.Text) ? float.NaN : float.Parse(deltaLineEdit.Text.Replace(".", ","));
+				controller.HandleRunButtonPressed(function, xZero, delta);
 			}
 		}
 	}

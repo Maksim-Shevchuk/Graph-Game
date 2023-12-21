@@ -1,3 +1,4 @@
+using System.IO;
 using Godot;
 using org.mariuszgromada.math.mxparser;
 
@@ -14,6 +15,8 @@ public partial class Game : Node2D
 	[Export] private ControlLayer _controlLayer;
 	private static int level = 3;
 	private string levelPath => $"scripts/level/json/level{level}.json";
+	private int levelAmount = Directory.GetFiles(@"scripts\level\json").Length;
+
 	public override void _Ready()
 	{
 		instance = this;
@@ -36,10 +39,16 @@ public partial class Game : Node2D
 		GetTree().ReloadCurrentScene();
 	}
 
-	public void NextLevel()
+	public bool NextLevel()
 	{
-		level++;
-		RestartLevel();
+		//todo
+		if (level != levelAmount)
+		{
+			level++;
+			RestartLevel();
+			return true;
+		}
+		return false;
 	}
 
 	public static Game Instance => instance;
@@ -49,7 +58,6 @@ public partial class Game : Node2D
 		set
 		{
 			level = value;
-			// RestartLevel();
 		}
 	}
 }

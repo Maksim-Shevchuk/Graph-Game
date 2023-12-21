@@ -1,14 +1,20 @@
+res://scripts/main
+res://scripts/main/level_menu
+res://main/level_menu
+res://control
+res://scripts/main/main_menu
+res://main/main_menu
+res://main
+res://
 res://Assets/Obstacle
 res://scripts/plot/checkpoint_storage
 res://plot/obstacle
-res://control
 res://scripts/control/graph_container
 res://scripts/plot/checkpoint_storage/checkpoint
 res://scripts/plot
 res://plot/checkpoint
 res://Assets/Checkpoint
 C:/Users/Максим/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Visual Studio Code
-res://
 res://Plot
 res://Control
 res://Game

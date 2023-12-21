@@ -14,6 +14,7 @@ public partial class ShipModel
     private Queue<Vector2> path;
 
     public event Action<Vector2> ModelUpdated;
+    public event Action<float> UpdateSpeed;
     public event Action<Queue<Vector2>> PathBuilt;
     public event Action ModelDestroyed;
     private ShipModel() { }

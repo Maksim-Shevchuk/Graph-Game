@@ -17,3 +17,22 @@ D:\GameFactory\GraphGame\.godot\mono\temp\obj\Debug\Graph Game.genruntimeconfig.
 D:\GameFactory\GraphGame\.godot\mono\temp\obj\Debug\ref\Graph Game.dll
 D:\GameFactory\GraphGame\.godot\mono\temp\bin\Debug\MathParser.org-mXparser.dll
 D:\GameFactory\GraphGame\.godot\mono\temp\obj\Debug\Graph Game.sourcelink.json
+D:\облако\GraphGameRestored\.godot\mono\temp\bin\Debug\Graph Game.deps.json
+D:\облако\GraphGameRestored\.godot\mono\temp\bin\Debug\Graph Game.runtimeconfig.json
+D:\облако\GraphGameRestored\.godot\mono\temp\bin\Debug\Graph Game.dll
+D:\облако\GraphGameRestored\.godot\mono\temp\bin\Debug\Graph Game.pdb
+D:\облако\GraphGameRestored\.godot\mono\temp\bin\Debug\GodotSharp.dll
+D:\облако\GraphGameRestored\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+D:\облако\GraphGameRestored\.godot\mono\temp\bin\Debug\MathParser.org-mXparser.dll
+D:\облако\GraphGameRestored\.godot\mono\temp\obj\Debug\Graph Game.csproj.AssemblyReference.cache
+D:\облако\GraphGameRestored\.godot\mono\temp\obj\Debug\Graph Game.GeneratedMSBuildEditorConfig.editorconfig
+D:\облако\GraphGameRestored\.godot\mono\temp\obj\Debug\Graph Game.AssemblyInfoInputs.cache
+D:\облако\GraphGameRestored\.godot\mono\temp\obj\Debug\Graph Game.AssemblyInfo.cs
+D:\облако\GraphGameRestored\.godot\mono\temp\obj\Debug\Graph Game.csproj.CoreCompileInputs.cache
+D:\облако\GraphGameRestored\.godot\mono\temp\obj\Debug\Graph Game.sourcelink.json
+D:\облако\GraphGameRestored\.godot\mono\temp\obj\Debug\Graph Game.csproj.CopyComplete
+D:\облако\GraphGameRestored\.godot\mono\temp\obj\Debug\Graph Game.dll
+D:\облако\GraphGameRestored\.godot\mono\temp\obj\Debug\refint\Graph Game.dll
+D:\облако\GraphGameRestored\.godot\mono\temp\obj\Debug\Graph Game.pdb
+D:\облако\GraphGameRestored\.godot\mono\temp\obj\Debug\Graph Game.genruntimeconfig.cache
+D:\облако\GraphGameRestored\.godot\mono\temp\obj\Debug\ref\Graph Game.dll

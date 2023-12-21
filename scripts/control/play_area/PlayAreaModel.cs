@@ -18,9 +18,18 @@ public partial class PlayAreaModel
         ChangeVisibilityExpandedInput?.Invoke(_isExpandedInputVisible);
     }
 
-    public void HandleMathExpression(string mathExp)
+    public void HandleMathExpression(string mathExp, float xZero, float delta)
     {
-        MovementModel movementModel = new(mathExp);
+        MovementModel movementModel;
+        movementModel = new(mathExp);
+        if (!float.IsNaN(xZero))
+        {
+            movementModel.XBorder = xZero;
+        }
+        if (!float.IsNaN(delta))
+        {
+            movementModel.Increment = delta;
+        }
         shipModel.MovementModel = movementModel;
     }
 
