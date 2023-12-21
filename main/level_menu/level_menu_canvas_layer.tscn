@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://drts6rqn7vndm"]
+
+[ext_resource type="Script" path="res://scripts/main/level_menu/LevelMenuCanvasLayer.cs" id="1_6wky8"]
+[ext_resource type="PackedScene" uid="uid://cw6l7or73vqlt" path="res://main/level_menu/level_menu.tscn" id="1_dft4l"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_6wky8")
+
+[node name="LevelMenu" parent="." instance=ExtResource("1_dft4l")]
+levelPackedScene = null

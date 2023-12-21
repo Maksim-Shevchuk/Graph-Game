@@ -7,7 +7,7 @@
 font_names = PackedStringArray("Impact")
 subpixel_positioning = 0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ushus"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lnnn7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0v0sg"]
 
@@ -22,9 +22,11 @@ font_names = PackedStringArray("Impact")
 
 [node name="Button" type="Button" node_paths=PackedStringArray("label")]
 custom_minimum_size = Vector2(134, 81)
+offset_right = 168.0
+offset_bottom = 86.0
 theme_override_fonts/font = SubResource("SystemFont_ep0bq")
 theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ushus")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lnnn7")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_0v0sg")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_1f3el")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ls8dl")
@@ -34,8 +36,7 @@ script = ExtResource("1_57e57")
 label = NodePath("Label")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(69, 43)
-scale = Vector2(0.793103, 0.955556)
+position = Vector2(87, 45)
 texture = ExtResource("1_itoj4")
 
 [node name="Label" type="Label" parent="."]

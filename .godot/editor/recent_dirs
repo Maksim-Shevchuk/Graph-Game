@@ -1,6 +1,8 @@
-res://scripts/main
+res://scripts/scene_manager
+res://scripts
 res://scripts/main/level_menu
 res://main/level_menu
+res://scripts/main
 res://control
 res://scripts/main/main_menu
 res://main/main_menu

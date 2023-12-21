@@ -15,7 +15,7 @@ public partial class Game : Node2D
 	[Export] private ControlLayer _controlLayer;
 	private static int level = 3;
 	private string levelPath => $"scripts/level/json/level{level}.json";
-	private int levelAmount = Directory.GetFiles(@"scripts\level\json").Length;
+	private int levelAmount => Directory.GetFiles(@"scripts\level\json").Length;
 
 	public override void _Ready()
 	{

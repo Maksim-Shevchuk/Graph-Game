@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bswuj1bgn7ma5" path="res://control/control_layer.tscn" id="1_o714x"]
 [ext_resource type="PackedScene" uid="uid://dh0cglmmhfvrw" path="res://plot/plot_layer.tscn" id="2_k47t7"]
 [ext_resource type="PackedScene" uid="uid://cinal1sfudbnd" path="res://ship/ship.tscn" id="4_si8mj"]
-[ext_resource type="Texture2D" uid="uid://cnmyyq6ipvw7e" path="res://Assets/Ui/level_with_2_inputs.png" id="5_uxfjb"]
+[ext_resource type="Texture2D" uid="uid://daeye5shva3pv" path="res://Assets/Ui/glass.png" id="6_e5jyy"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("_ship", "_plotLayer", "_controlLayer")]
 script = ExtResource("1_6vo0c")
@@ -22,11 +22,16 @@ layer = -1
 [node name="ControlLayer" parent="." instance=ExtResource("1_o714x")]
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -100
 
 [node name="TextureRect" type="TextureRect" parent="BackgroundLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_uxfjb")
+offset_left = -81.0
+offset_top = -264.0
+offset_right = 1992.0
+offset_bottom = 1243.0
+texture = ExtResource("6_e5jyy")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+show_behind_parent = true
+position = Vector2(555, 73)
+color = Color(0.607843, 0.419608, 0.94902, 1)

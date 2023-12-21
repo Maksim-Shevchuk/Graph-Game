@@ -1,12 +1,13 @@
-Sprite2D
+DirectionalLight2D
 CanvasLayer
+TextureRect
+Sprite2D
 Button
 TextureButton
 CheckButton
 Label
 Control
 Panel
-TextureRect
 VBoxContainer
 MarginContainer
 PanelContainer

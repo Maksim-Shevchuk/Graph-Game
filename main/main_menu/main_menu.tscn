@@ -7,6 +7,7 @@
 [sub_resource type="SystemFont" id="SystemFont_qr44v"]
 font_names = PackedStringArray("Impact")
 font_italic = true
+subpixel_positioning = 0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3y6c3"]
 
@@ -20,6 +21,7 @@ font_italic = true
 
 [sub_resource type="SystemFont" id="SystemFont_a515u"]
 font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -29,6 +31,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wct35")
+sceneNamesEnum = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -77,7 +80,7 @@ alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 70
 alignment = 1
 
 [node name="Separator" type="Control" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]

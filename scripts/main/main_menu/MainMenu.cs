@@ -1,12 +1,12 @@
 using Godot;
-using System;
 
 public partial class MainMenu : Control
 {
-	[Export] PackedScene packedScene;
+	[Export] private SceneNamesEnum sceneNamesEnum;
+
 	private void OnPlayButtonPressed()
 	{
-		GetTree().ChangeSceneToPacked(packedScene);
+		SceneManager.Instance.ChangeScene(sceneNamesEnum);
 	}
 
 	private void OnOptionsPressed()

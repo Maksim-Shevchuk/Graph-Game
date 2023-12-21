@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cw6l7or73vqlt"]
+[gd_scene load_steps=7 format=3 uid="uid://cw6l7or73vqlt"]
 
 [ext_resource type="Script" path="res://scripts/main/level_menu/LevelMenu.cs" id="1_30o8a"]
 [ext_resource type="PackedScene" uid="uid://cco7bp0mbhqok" path="res://main/level_menu/level_button.tscn" id="2_4r3c5"]
 [ext_resource type="Texture2D" uid="uid://bkcm1tw7ajtrg" path="res://Assets/Ui/level_without_inputs.png" id="2_dvp7j"]
+[ext_resource type="PackedScene" uid="uid://bqtx7f66jbd1s" path="res://game/game.tscn" id="3_ov7sh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tnofa"]
 
@@ -20,6 +21,8 @@ size_flags_vertical = 4
 script = ExtResource("1_30o8a")
 buttonPackedScene = ExtResource("2_4r3c5")
 levelsContainer = NodePath("HBoxContainer/MarginContainer/VBoxContainer/GridContainer")
+sceneNamesEnum = 1
+levelPackedScene = ExtResource("3_ov7sh")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -58,11 +61,11 @@ theme_override_constants/separation = 140
 layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(900, 800)
+custom_minimum_size = Vector2(850, 780)
 layout_mode = 2
-theme_override_constants/h_separation = 55
+theme_override_constants/h_separation = 98
 theme_override_constants/v_separation = 40
-columns = 5
+columns = 4
 
 [node name="RightColumn" type="PanelContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(520, 0)

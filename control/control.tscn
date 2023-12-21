@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4j72wt8cwxu1"]
+[gd_scene load_steps=9 format=3 uid="uid://c4j72wt8cwxu1"]
 
 [ext_resource type="Script" path="res://scripts/control/ControlScene.cs" id="1_ovrdh"]
+[ext_resource type="Texture2D" uid="uid://g20pd1feo3db" path="res://Assets/Ui/level_with_1_input.png" id="2_bc2oy"]
 [ext_resource type="PackedScene" uid="uid://csjac3bhrqyar" path="res://control/play_area_container.tscn" id="2_yqk7x"]
+[ext_resource type="Texture2D" uid="uid://cnmyyq6ipvw7e" path="res://Assets/Ui/level_with_2_inputs.png" id="3_sy8uk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lrpil"]
 
@@ -11,7 +13,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2j1b"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("playArea")]
+[node name="Control" type="Control" node_paths=PackedStringArray("playArea", "textureRect")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,6 +23,18 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_ovrdh")
 playArea = NodePath("PanelContainer/HBoxContainer/GameContainer/PlayAreaContainer")
+textureRect = NodePath("TextureRect")
+singlLineEditRect = ExtResource("2_bc2oy")
+multipleLineEditRect = ExtResource("3_sy8uk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_sy8uk")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
