@@ -15,6 +15,12 @@ public partial class LevelInfo
     private List<Vector2> _checkpointCoords;
     private List<Vector2> _obstacleCoords;
     private bool _extraInputEnabled;
+    private float _delta = 0.01f;
+
+    public float Delta {
+        get => _delta;
+        set => _delta = value;
+    }    
 
     public LevelInfo(int id, int interval, int margin, Vector2 startPosition, bool extraInputEnabled)
     {

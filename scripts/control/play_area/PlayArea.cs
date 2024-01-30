@@ -9,6 +9,8 @@ public partial class PlayArea : VBoxContainer
 	[Export] private HBoxContainer expandedInput;
 	[Export] private LineEdit xZeroLineEdit;
 	[Export] private LineEdit deltaLineEdit;
+	[Export] private Button runButton;
+	[Export] private PanelContainer HelpPopUpContainer;
 
 	private static PlayArea instance;
 	private PlayAreaModel model = PlayAreaModel.Instance;
@@ -21,6 +23,7 @@ public partial class PlayArea : VBoxContainer
 	{
 		functionLineEdit.GrabFocus();
 		expandedInput.Visible = false;
+		HelpPopUpContainer.Visible = false;
 		model.ChangeVisibilityExpandedInput += ChangeVisibilityExpandedInput;
 	}
 
@@ -33,6 +36,7 @@ public partial class PlayArea : VBoxContainer
 	{
 		if (!string.IsNullOrEmpty(functionLineEdit.Text))
 		{
+			runButton.Disabled = true;
 			Regex functionRegex = new("^y=x?.+");
 			string function = functionLineEdit.Text.Replace("\\s", "").ToLower();
 			if (functionRegex.Matches(function).Count > 0)
@@ -42,6 +46,16 @@ public partial class PlayArea : VBoxContainer
 				controller.HandleRunButtonPressed(function, xZero, delta);
 			}
 		}
+	}
+
+	private void OnHelpButtonPressed()
+	{
+		HelpPopUpContainer.Visible = !HelpPopUpContainer.Visible;
+	}
+
+	private void OnClosePopUpButtonPressed()
+	{
+		HelpPopUpContainer.Visible = false;
 	}
 
 	private void ChangeVisibilityExpandedInput(bool isExpandedInputVisible)

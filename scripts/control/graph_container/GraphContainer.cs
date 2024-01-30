@@ -10,6 +10,7 @@ public partial class GraphContainer : PanelContainer
 	[Export] private Label nextLevelLabel;
 	// [Export] private PackedScene mainScene;
 	[Export] private SceneNamesEnum sceneNamesEnum;
+	[Export] private PanelContainer HelpPopUpContainer;
 
 	private GraphContainerModel model = GraphContainerModel.Instance;
 	private GraphContainerController controller = GraphContainerController.Instance;
@@ -44,12 +45,13 @@ public partial class GraphContainer : PanelContainer
 
 	private void ChangeVisibilityLevelEndedContainer(bool isWin)
 	{
+		HelpPopUpContainer.Visible = false;
 		nextLevelButton.Disabled = !isWin;
 		if (!isWin)
 		{
 			nextLevelLabel.Modulate = Colors.Gray; ;
 		}
 		levelEndedContainer.Visible = true;
-		winOrLooseLabel.Text = isWin ? "You win!" : "You loose";
+		winOrLooseLabel.Text = isWin ? "You win!" : "You lose";
 	}
 }

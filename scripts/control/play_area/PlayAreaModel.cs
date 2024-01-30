@@ -24,7 +24,7 @@ public partial class PlayAreaModel
         movementModel = new(mathExp);
         if (!float.IsNaN(xZero))
         {
-            movementModel.XBorder = xZero;
+            movementModel.XBorder = MathF.Round(xZero, 2);
         }
         if (!float.IsNaN(delta))
         {

@@ -16,8 +16,10 @@ public class CoordsUtils
 
     public static Vector2 ToWorldCoords(Vector2 globalCoords)
     {
-        return new((globalCoords.X - gameAreaRect.X - margin) / interval,
-            (gameAreaRect.Y - margin - globalCoords.Y) / interval);
+        return new(
+            (globalCoords.X - gameAreaRect.X - margin) / interval,
+            (gameAreaRect.Y - margin - globalCoords.Y) / interval
+            );
     }
 
     public static Vector2 ToScreenCoords(Vector2 relativeCoords)
@@ -32,8 +34,7 @@ public class CoordsUtils
         set => margin = value;
     }
 
-    public static
-     int Interval
+    public static int Interval
     {
         get => interval;
         set => interval = value;

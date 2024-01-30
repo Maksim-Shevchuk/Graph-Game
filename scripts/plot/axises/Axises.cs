@@ -8,7 +8,7 @@ public partial class Axises : Node2D
 	private static int margin;
 	private static int interval;
 	private static readonly Vector2 boundPosition = new(525, 945);
-	private static int containerSideLength = 900 - 70;
+	private static int containerSideLength = 900 - 80;
 	private static Vector2 startPosition;
 	private static Vector2 toY { get; set; }
 	private static Vector2 toX { get; set; }

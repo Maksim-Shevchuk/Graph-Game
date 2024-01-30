@@ -1,9 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://csjac3bhrqyar"]
+[gd_scene load_steps=50 format=3 uid="uid://csjac3bhrqyar"]
 
 [ext_resource type="Script" path="res://scripts/control/play_area/PlayArea.cs" id="1_xb56u"]
 [ext_resource type="Script" path="res://scripts/control/graph_container/GraphContainer.cs" id="2_gdcf5"]
 [ext_resource type="Texture2D" uid="uid://du6j33ipah7xp" path="res://Assets/Ui/button.png" id="3_4vjid"]
 [ext_resource type="Texture2D" uid="uid://b7s5hch1nqqn8" path="res://Assets/Ui/menu.png" id="3_b8023"]
+[ext_resource type="Texture2D" uid="uid://brosopgrm1cgq" path="res://Assets/Ui/HelpPopUp.png" id="5_l26jx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cd556"]
 
@@ -13,6 +14,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_m7s15"]
 font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n4eha"]
 
@@ -34,6 +36,22 @@ font_names = PackedStringArray("Impact")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hx54v"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jvy5q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6rmsa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f1o5y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvd2u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tydgb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hxu7a"]
+
+[sub_resource type="SystemFont" id="SystemFont_xysyl"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1xo5r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_onrte"]
@@ -46,7 +64,7 @@ font_names = PackedStringArray("Impact")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_it1bd"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oplou"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmjbw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_unw3l"]
 
@@ -56,30 +74,40 @@ font_names = PackedStringArray("Impact")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l8q2r"]
 
-[sub_resource type="SystemFont" id="SystemFont_0ki7g"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vs3d0"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tmx3e"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4e4m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_enue8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m3l2k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpgnl"]
+
+[sub_resource type="SystemFont" id="SystemFont_0ki7g"]
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p4iy3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m0jkd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ofnfp"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x8q1m"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hy4yq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gxfki"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5l127"]
 
-[node name="PlayAreaContainer" type="VBoxContainer" node_paths=PackedStringArray("functionLineEdit", "expandedInput", "xZeroLineEdit", "deltaLineEdit")]
+[node name="PlayAreaContainer" type="VBoxContainer" node_paths=PackedStringArray("functionLineEdit", "expandedInput", "xZeroLineEdit", "deltaLineEdit", "runButton", "HelpPopUpContainer")]
 theme_override_constants/separation = 0
 script = ExtResource("1_xb56u")
 functionLineEdit = NodePath("ButtonsContainer/PanelContainer/VBoxContainer/InputContainer/LineEdit")
 expandedInput = NodePath("ButtonsContainer/PanelContainer/VBoxContainer/ExpandedInputContainer")
 xZeroLineEdit = NodePath("ButtonsContainer/PanelContainer/VBoxContainer/ExpandedInputContainer/XZeroLineEdit")
 deltaLineEdit = NodePath("ButtonsContainer/PanelContainer/VBoxContainer/ExpandedInputContainer/DeltaLineEdit")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 2
+runButton = NodePath("ButtonsContainer/PanelContainer/VBoxContainer/InputContainer/Button")
+HelpPopUpContainer = NodePath("GraphContainer/HelpPopUpContainer")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 55)
@@ -87,7 +115,7 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_cd556")
 
-[node name="GraphContainer" type="PanelContainer" parent="." node_paths=PackedStringArray("levelEndedContainer", "winOrLooseLabel", "nextLevelButton", "nextLevelLabel")]
+[node name="GraphContainer" type="PanelContainer" parent="." node_paths=PackedStringArray("levelEndedContainer", "winOrLooseLabel", "nextLevelButton", "nextLevelLabel", "HelpPopUpContainer")]
 custom_minimum_size = Vector2(900, 900)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -99,6 +127,7 @@ levelEndedContainer = NodePath("PanelContainer")
 winOrLooseLabel = NodePath("PanelContainer/VBoxContainer/Label")
 nextLevelButton = NodePath("PanelContainer/VBoxContainer/HBoxContainer/Next")
 nextLevelLabel = NodePath("PanelContainer/VBoxContainer/HBoxContainer/Next/Label")
+HelpPopUpContainer = NodePath("HelpPopUpContainer")
 
 [node name="PanelContainer" type="PanelContainer" parent="GraphContainer"]
 layout_mode = 2
@@ -216,8 +245,64 @@ text = "Next"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="HelpPopUpContainer" type="PanelContainer" parent="GraphContainer"]
+custom_minimum_size = Vector2(620, 692)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jvy5q")
+
+[node name="Sprite2D" type="Sprite2D" parent="GraphContainer/HelpPopUpContainer"]
+position = Vector2(319, 340)
+texture = ExtResource("5_l26jx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GraphContainer/HelpPopUpContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GraphContainer/HelpPopUpContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="GraphContainer/HelpPopUpContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ClosePopUpButton" type="Button" parent="GraphContainer/HelpPopUpContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6rmsa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_f1o5y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tvd2u")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tydgb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hxu7a")
+
+[node name="Title" type="Label" parent="GraphContainer/HelpPopUpContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_xysyl")
+theme_override_font_sizes/font_size = 30
+text = "Help"
+
+[node name="GameDescription" type="Label" parent="GraphContainer/HelpPopUpContainer/VBoxContainer"]
+layout_mode = 2
+text = "Pilot the plane using mathematical functions, collect crystals, avoid
+ meteorites, and stay within the screen boundaries.
+ "
+horizontal_alignment = 1
+
+[node name="AvailableFuncs" type="Label" parent="GraphContainer/HelpPopUpContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_xysyl")
+theme_override_font_sizes/font_size = 24
+text = "Available Functions"
+
 [node name="Panel2" type="Panel" parent="."]
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_1xo5r")
@@ -235,11 +320,12 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_5phlw")
 [node name="VBoxContainer" type="VBoxContainer" parent="ButtonsContainer/PanelContainer"]
 use_parent_material = true
 layout_mode = 2
-theme_override_constants/separation = 5
+
+[node name="Control" type="Control" parent="ButtonsContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="InputContainer" type="HBoxContainer" parent="ButtonsContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="Control" type="Control" parent="ButtonsContainer/PanelContainer/VBoxContainer/InputContainer"]
 custom_minimum_size = Vector2(70, 0)
@@ -252,6 +338,7 @@ theme_override_font_sizes/font_size = 28
 text = " > "
 
 [node name="LineEdit" type="LineEdit" parent="ButtonsContainer/PanelContainer/VBoxContainer/InputContainer"]
+custom_minimum_size = Vector2(580, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
@@ -266,14 +353,26 @@ size_flags_horizontal = 10
 theme_override_constants/h_separation = 20
 theme_override_constants/icon_max_width = 0
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxEmpty_oplou")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jmjbw")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_unw3l")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_gjm3a")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_6vavn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_l8q2r")
 
-[node name="Control2" type="Control" parent="ButtonsContainer/PanelContainer/VBoxContainer/InputContainer"]
-custom_minimum_size = Vector2(70, 0)
+[node name="Separator" type="Control" parent="ButtonsContainer/PanelContainer/VBoxContainer/InputContainer"]
+layout_mode = 2
+
+[node name="HelpButton" type="Button" parent="ButtonsContainer/PanelContainer/VBoxContainer/InputContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vs3d0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_g4e4m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_enue8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_m3l2k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kpgnl")
+
+[node name="Separator2" type="Control" parent="ButtonsContainer/PanelContainer/VBoxContainer/InputContainer"]
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
 [node name="Separator" type="Control" parent="ButtonsContainer/PanelContainer/VBoxContainer"]
@@ -281,36 +380,51 @@ layout_mode = 2
 
 [node name="ExpandedInputContainer" type="HBoxContainer" parent="ButtonsContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
 
 [node name="Separator" type="Control" parent="ButtonsContainer/PanelContainer/VBoxContainer/ExpandedInputContainer"]
-custom_minimum_size = Vector2(55, 0)
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 
+[node name="Label" type="Label" parent="ButtonsContainer/PanelContainer/VBoxContainer/ExpandedInputContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = " X₀"
+
 [node name="XZeroLineEdit" type="LineEdit" parent="ButtonsContainer/PanelContainer/VBoxContainer/ExpandedInputContainer"]
-custom_minimum_size = Vector2(295, 0)
+custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_0ki7g")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxEmpty_tmx3e")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p4iy3")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_m0jkd")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_ofnfp")
-placeholder_text = "X₀"
 
 [node name="Separator2" type="Control" parent="ButtonsContainer/PanelContainer/VBoxContainer/ExpandedInputContainer"]
+custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 
+[node name="Label2" type="Label" parent="ButtonsContainer/PanelContainer/VBoxContainer/ExpandedInputContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "▲"
+
 [node name="DeltaLineEdit" type="LineEdit" parent="ButtonsContainer/PanelContainer/VBoxContainer/ExpandedInputContainer"]
-custom_minimum_size = Vector2(295, 0)
+custom_minimum_size = Vector2(265, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxEmpty_x8q1m")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hy4yq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gxfki")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_5l127")
-placeholder_text = "▲"
+
+[node name="Separator3" type="Control" parent="ButtonsContainer/PanelContainer/VBoxContainer/ExpandedInputContainer"]
+layout_mode = 2
 
 [connection signal="pressed" from="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Restart" to="." method="OnRestartPressed" flags=18]
 [connection signal="pressed" from="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Restart" to="GraphContainer" method="OnRestartPressed" flags=18]
 [connection signal="pressed" from="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Home" to="GraphContainer" method="OnHomePressed"]
 [connection signal="pressed" from="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Next" to="GraphContainer" method="OnNextPressed"]
+[connection signal="pressed" from="GraphContainer/HelpPopUpContainer/VBoxContainer/HBoxContainer/ClosePopUpButton" to="." method="OnClosePopUpButtonPressed"]
 [connection signal="pressed" from="ButtonsContainer/PanelContainer/VBoxContainer/InputContainer/Button" to="." method="OnRunButtonPressed" flags=18]
+[connection signal="pressed" from="ButtonsContainer/PanelContainer/VBoxContainer/InputContainer/HelpButton" to="." method="OnHelpButtonPressed"]

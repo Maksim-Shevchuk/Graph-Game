@@ -10,6 +10,7 @@ public partial class ControlScene : Control
 	[Export] private Texture2D singlLineEditRect;
 	[Export] private Texture2D multipleLineEditRect;
 	private static ControlScene instance;
+	
 	private ControlScene() { }
 	private PlayAreaModel playAreaModel = PlayAreaModel.Instance;
 

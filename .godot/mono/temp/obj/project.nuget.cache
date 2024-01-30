@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KsGBjJ2YejUTbvCqInq6mxCFYW4ZNdAgjOP4k/h8cGOFkZOosFE9lP2FF9oupC6TOwcLB7ZozkC1xKlobAmciw==",
+  "dgSpecHash": "+KWrzVVrLUVEzxSm/seKWXgpJT1LsaaKoXuitjr1JTSzvqMi5vU/qM9AYYc8jTyQhbi2LFFTxDZ0T4LXXwghIg==",
   "success": true,
   "projectFilePath": "D:\\облако\\GraphGameRestored\\Graph Game.csproj",
   "expectedPackageFiles": [
@@ -8,9 +8,9 @@
     "C:\\Users\\Максим\\.nuget\\packages\\godotsharp\\4.2.0-beta.1\\godotsharp.4.2.0-beta.1.nupkg.sha512",
     "C:\\Users\\Максим\\.nuget\\packages\\godotsharpeditor\\4.2.0-beta.1\\godotsharpeditor.4.2.0-beta.1.nupkg.sha512",
     "C:\\Users\\Максим\\.nuget\\packages\\mathparser.org-mxparser\\5.2.1\\mathparser.org-mxparser.5.2.1.nupkg.sha512",
-    "C:\\Users\\Максим\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.23\\microsoft.netcore.app.ref.6.0.23.nupkg.sha512",
-    "C:\\Users\\Максим\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.23\\microsoft.windowsdesktop.app.ref.6.0.23.nupkg.sha512",
-    "C:\\Users\\Максим\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.23\\microsoft.aspnetcore.app.ref.6.0.23.nupkg.sha512"
+    "C:\\Users\\Максим\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\Максим\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\Максим\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.26\\microsoft.aspnetcore.app.ref.6.0.26.nupkg.sha512"
   ],
   "logs": []
 }

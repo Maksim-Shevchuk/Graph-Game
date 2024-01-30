@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 namespace GraphGame;
@@ -22,6 +23,8 @@ public partial class CheckPointNode : Area2D
 		Vector2 relativeCoords = CoordsUtils.ToWorldCoords(position);
 		Label label = new()
 		{
+			// TODO: 
+			// add MathF.Round 
 			Visible = false,
 			Position = new(position.X + 15, position.Y + 15),
 			Text = $"({relativeCoords.X}; {relativeCoords.Y})"

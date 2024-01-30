@@ -1,0 +1,12 @@
+res://control/control.tscn::6de7c2815a85bf0bbbc7d5a1785682c2::1703249706::res://.godot/exported/133200997/export-7a613e8c36f26570ba125e4b00c550f2-control.scn
+res://control/control_layer.tscn::29fe278bd35780c80d94dc2c9aadc957::1702471172::res://.godot/exported/133200997/export-0974fb80b3efeb10dfa286c99753d070-control_layer.scn
+res://control/play_area_container.tscn::a24243f96569376e5060b5860198e007::1703249706::res://.godot/exported/133200997/export-9a7938930174333b341455a9ea8004d2-play_area_container.scn
+res://game/game.tscn::c69466923a68691eaaac840dd4d86863::1703249706::res://.godot/exported/133200997/export-3c5491bc1cb430bead51b94ed5d36eda-game.scn
+res://main/level_menu/level_button.tscn::17759da1fe3e3436c3e73a55631bd641::1703249706::res://.godot/exported/133200997/export-356cf4b18a41787af74e78d6788425a8-level_button.scn
+res://main/level_menu/level_menu.tscn::9388bcbaf277477438b65070c16a6be2::1703249706::res://.godot/exported/133200997/export-e424c29af65deffcb184f4a1c297c9f3-level_menu.scn
+res://main/main_menu/main_menu.tscn::23e054e958fe946db434c8d652e25f44::1703249706::res://.godot/exported/133200997/export-6de2aa4d3ae8a5f7c356567821e20e7c-main_menu.scn
+res://main/main.tscn::fcf732d5347635fe40e74dd6d2f907c7::1703249706::res://.godot/exported/133200997/export-435f623093a3e2498450e744191b98a6-main.scn
+res://plot/checkpoint/check_point.tscn::006d83e22b077dacb7b872d327a3fdb5::1702901252::res://.godot/exported/133200997/export-1783264a1114b72ef712ffa8284b0ee8-check_point.scn
+res://plot/obstacle/obstacle.tscn::1809f9138b38ca9553a6e6fe245d612a::1702901252::res://.godot/exported/133200997/export-b3d7ccebf6962ec7716d95a4f7e40a65-obstacle.scn
+res://plot/plot_layer.tscn::590f111dda8203d2c58266c5aca44d97::1703249706::res://.godot/exported/133200997/export-ca8526613d902fa534e5f03de5d1b49b-plot_layer.scn
+res://ship/ship.tscn::606931880d8fab701d1a619d93e6f221::1703249706::res://.godot/exported/133200997/export-a398f86b6c0bf0469f07cbfaade2da03-ship.scn
