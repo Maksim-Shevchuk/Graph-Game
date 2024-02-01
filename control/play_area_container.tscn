@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://csjac3bhrqyar"]
+[gd_scene load_steps=51 format=3 uid="uid://csjac3bhrqyar"]
 
 [ext_resource type="Script" path="res://scripts/control/play_area/PlayArea.cs" id="1_xb56u"]
 [ext_resource type="Script" path="res://scripts/control/graph_container/GraphContainer.cs" id="2_gdcf5"]
@@ -52,6 +52,10 @@ subpixel_positioning = 0
 font_names = PackedStringArray("Impact")
 subpixel_positioning = 0
 
+[sub_resource type="SystemFont" id="SystemFont_uh8cb"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1xo5r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_onrte"]
@@ -87,13 +91,13 @@ subpixel_positioning = 0
 [sub_resource type="SystemFont" id="SystemFont_0ki7g"]
 subpixel_positioning = 0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p4iy3"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_urqd1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m0jkd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ofnfp"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hy4yq"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8b5fr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gxfki"]
 
@@ -123,34 +127,34 @@ size_flags_vertical = 4
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_64ljw")
 script = ExtResource("2_gdcf5")
-levelEndedContainer = NodePath("PanelContainer")
-winOrLooseLabel = NodePath("PanelContainer/VBoxContainer/Label")
-nextLevelButton = NodePath("PanelContainer/VBoxContainer/HBoxContainer/Next")
-nextLevelLabel = NodePath("PanelContainer/VBoxContainer/HBoxContainer/Next/Label")
+levelEndedContainer = NodePath("WinOrLoseContainer")
+winOrLooseLabel = NodePath("WinOrLoseContainer/VBoxContainer/Label")
+nextLevelButton = NodePath("WinOrLoseContainer/VBoxContainer/HBoxContainer/Next")
+nextLevelLabel = NodePath("WinOrLoseContainer/VBoxContainer/HBoxContainer/Next/Label")
 HelpPopUpContainer = NodePath("HelpPopUpContainer")
 
-[node name="PanelContainer" type="PanelContainer" parent="GraphContainer"]
+[node name="WinOrLoseContainer" type="PanelContainer" parent="GraphContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_6u048")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GraphContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GraphContainer/WinOrLoseContainer"]
 custom_minimum_size = Vector2(611, 311)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 60
 
-[node name="Sprite2D" type="Sprite2D" parent="GraphContainer/PanelContainer/VBoxContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="GraphContainer/WinOrLoseContainer/VBoxContainer"]
 position = Vector2(305, 156.25)
 scale = Vector2(1.018, 1.01447)
 texture = ExtResource("3_b8023")
 
-[node name="Control" type="Control" parent="GraphContainer/PanelContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="GraphContainer/WinOrLoseContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="GraphContainer/PanelContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="GraphContainer/WinOrLoseContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -158,12 +162,12 @@ theme_override_fonts/font = SubResource("SystemFont_m7s15")
 theme_override_font_sizes/font_size = 60
 text = "You win!"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GraphContainer/PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="GraphContainer/WinOrLoseContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Restart" type="Button" parent="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Restart" type="Button" parent="GraphContainer/WinOrLoseContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(170, 85)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n4eha")
@@ -173,11 +177,11 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_uxfci")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0m050")
 text = "Restart"
 
-[node name="Button" type="Sprite2D" parent="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Restart"]
+[node name="Button" type="Sprite2D" parent="GraphContainer/WinOrLoseContainer/VBoxContainer/HBoxContainer/Restart"]
 position = Vector2(88, 42)
 texture = ExtResource("3_4vjid")
 
-[node name="Label" type="Label" parent="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Restart"]
+[node name="Label" type="Label" parent="GraphContainer/WinOrLoseContainer/VBoxContainer/HBoxContainer/Restart"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -191,7 +195,7 @@ text = "Restart
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Home" type="Button" parent="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Home" type="Button" parent="GraphContainer/WinOrLoseContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(170, 85)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n4eha")
@@ -201,11 +205,11 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_uxfci")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0m050")
 text = "Restart"
 
-[node name="Button" type="Sprite2D" parent="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Home"]
+[node name="Button" type="Sprite2D" parent="GraphContainer/WinOrLoseContainer/VBoxContainer/HBoxContainer/Home"]
 position = Vector2(88, 42)
 texture = ExtResource("3_4vjid")
 
-[node name="Label" type="Label" parent="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Home"]
+[node name="Label" type="Label" parent="GraphContainer/WinOrLoseContainer/VBoxContainer/HBoxContainer/Home"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -219,7 +223,7 @@ text = "Home
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Next" type="Button" parent="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Next" type="Button" parent="GraphContainer/WinOrLoseContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(170, 85)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_r8qva")
@@ -228,11 +232,11 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_odw81")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_pjqpv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hx54v")
 
-[node name="Button" type="Sprite2D" parent="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Next"]
+[node name="Button" type="Sprite2D" parent="GraphContainer/WinOrLoseContainer/VBoxContainer/HBoxContainer/Next"]
 position = Vector2(88, 42)
 texture = ExtResource("3_4vjid")
 
-[node name="Label" type="Label" parent="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Next"]
+[node name="Label" type="Label" parent="GraphContainer/WinOrLoseContainer/VBoxContainer/HBoxContainer/Next"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -259,15 +263,15 @@ texture = ExtResource("5_l26jx")
 [node name="VBoxContainer" type="VBoxContainer" parent="GraphContainer/HelpPopUpContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GraphContainer/HelpPopUpContainer/VBoxContainer"]
+[node name="UpperContainer" type="HBoxContainer" parent="GraphContainer/HelpPopUpContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="GraphContainer/HelpPopUpContainer/VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="GraphContainer/HelpPopUpContainer/VBoxContainer/UpperContainer"]
 custom_minimum_size = Vector2(40, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ClosePopUpButton" type="Button" parent="GraphContainer/HelpPopUpContainer/VBoxContainer/HBoxContainer"]
+[node name="ClosePopUpButton" type="Button" parent="GraphContainer/HelpPopUpContainer/VBoxContainer/UpperContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6rmsa")
@@ -282,24 +286,105 @@ size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_xysyl")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 32
 text = "Help"
 
 [node name="GameDescription" type="Label" parent="GraphContainer/HelpPopUpContainer/VBoxContainer"]
 layout_mode = 2
-text = "Pilot the plane using mathematical functions, collect crystals, avoid
- meteorites, and stay within the screen boundaries.
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "Pilot the plane using mathematical functions, collect
+crystals, avoid meteorites, and stay within thescreen 
+boundaries.
  "
-horizontal_alignment = 1
 
-[node name="AvailableFuncs" type="Label" parent="GraphContainer/HelpPopUpContainer/VBoxContainer"]
+[node name="FuncSyntax" type="Label" parent="GraphContainer/HelpPopUpContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_xysyl")
+theme_override_font_sizes/font_size = 28
+text = "Function syntax"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GraphContainer/HelpPopUpContainer/VBoxContainer"]
+custom_minimum_size = Vector2(540, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VariablesContainer2" type="VBoxContainer" parent="GraphContainer/HelpPopUpContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="GraphContainer/HelpPopUpContainer/VBoxContainer/HBoxContainer/VariablesContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_uh8cb")
 theme_override_font_sizes/font_size = 24
-text = "Available Functions"
+text = "Variables"
+horizontal_alignment = 1
+
+[node name="X" type="Label" parent="GraphContainer/HelpPopUpContainer/VBoxContainer/HBoxContainer/VariablesContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "• x
+• y
+ "
+horizontal_alignment = 1
+
+[node name="OperatorsContainer" type="VBoxContainer" parent="GraphContainer/HelpPopUpContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="GraphContainer/HelpPopUpContainer/VBoxContainer/HBoxContainer/OperatorsContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_uh8cb")
+theme_override_font_sizes/font_size = 24
+text = "Operators"
+horizontal_alignment = 1
+
+[node name="X" type="Label" parent="GraphContainer/HelpPopUpContainer/VBoxContainer/HBoxContainer/OperatorsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "• +
+• -
+• /
+• *
+• ^
+
+ "
+horizontal_alignment = 1
+
+[node name="FunctionsContainer" type="VBoxContainer" parent="GraphContainer/HelpPopUpContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="GraphContainer/HelpPopUpContainer/VBoxContainer/HBoxContainer/FunctionsContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_uh8cb")
+theme_override_font_sizes/font_size = 24
+text = "Functions"
+horizontal_alignment = 1
+
+[node name="X" type="Label" parent="GraphContainer/HelpPopUpContainer/VBoxContainer/HBoxContainer/FunctionsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "• sqrt( )
+• log( )
+• ln( )
+• abs( )
+• sin ( )
+• cos ( )
+• tan( )
+• exp( )
+"
+horizontal_alignment = 1
 
 [node name="Panel2" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 25)
@@ -389,16 +474,17 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 20
-text = " X₀"
+text = " X₀ "
 
 [node name="XZeroLineEdit" type="LineEdit" parent="ButtonsContainer/PanelContainer/VBoxContainer/ExpandedInputContainer"]
 custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_0ki7g")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxEmpty_p4iy3")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_urqd1")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_m0jkd")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_ofnfp")
+max_length = 18
 
 [node name="Separator2" type="Control" parent="ButtonsContainer/PanelContainer/VBoxContainer/ExpandedInputContainer"]
 custom_minimum_size = Vector2(35, 0)
@@ -408,23 +494,24 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 20
-text = "▲"
+text = "▲ "
 
 [node name="DeltaLineEdit" type="LineEdit" parent="ButtonsContainer/PanelContainer/VBoxContainer/ExpandedInputContainer"]
 custom_minimum_size = Vector2(265, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxEmpty_hy4yq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8b5fr")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gxfki")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_5l127")
+max_length = 18
 
 [node name="Separator3" type="Control" parent="ButtonsContainer/PanelContainer/VBoxContainer/ExpandedInputContainer"]
 layout_mode = 2
 
-[connection signal="pressed" from="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Restart" to="." method="OnRestartPressed" flags=18]
-[connection signal="pressed" from="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Restart" to="GraphContainer" method="OnRestartPressed" flags=18]
-[connection signal="pressed" from="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Home" to="GraphContainer" method="OnHomePressed"]
-[connection signal="pressed" from="GraphContainer/PanelContainer/VBoxContainer/HBoxContainer/Next" to="GraphContainer" method="OnNextPressed"]
-[connection signal="pressed" from="GraphContainer/HelpPopUpContainer/VBoxContainer/HBoxContainer/ClosePopUpButton" to="." method="OnClosePopUpButtonPressed"]
+[connection signal="pressed" from="GraphContainer/WinOrLoseContainer/VBoxContainer/HBoxContainer/Restart" to="." method="OnRestartPressed" flags=18]
+[connection signal="pressed" from="GraphContainer/WinOrLoseContainer/VBoxContainer/HBoxContainer/Restart" to="GraphContainer" method="OnRestartPressed" flags=18]
+[connection signal="pressed" from="GraphContainer/WinOrLoseContainer/VBoxContainer/HBoxContainer/Home" to="GraphContainer" method="OnHomePressed"]
+[connection signal="pressed" from="GraphContainer/WinOrLoseContainer/VBoxContainer/HBoxContainer/Next" to="GraphContainer" method="OnNextPressed"]
+[connection signal="pressed" from="GraphContainer/HelpPopUpContainer/VBoxContainer/UpperContainer/ClosePopUpButton" to="." method="OnClosePopUpButtonPressed"]
 [connection signal="pressed" from="ButtonsContainer/PanelContainer/VBoxContainer/InputContainer/Button" to="." method="OnRunButtonPressed" flags=18]
 [connection signal="pressed" from="ButtonsContainer/PanelContainer/VBoxContainer/InputContainer/HelpButton" to="." method="OnHelpButtonPressed"]

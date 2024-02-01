@@ -22,7 +22,7 @@ public partial class MovementModel
 
     private int N = 0;
 
-    private float Xn = 0;
+    private decimal Xn = 0;
 
     private Argument x = new("x");
     private Argument y;
@@ -32,19 +32,21 @@ public partial class MovementModel
         this.mathExp = mathExp;
         _increment = increment;
         this.xBorder = xBorder;
-        Xn = xBorder;
+        Xn = (decimal)xBorder;
         y = new(mathExp, x);
         instance = this;
     }
 
     public Vector2 CalculatePosition(int n)
     {
-        Xn += N == n - 1 ? _increment : _increment * n;
+        // Xn += N == n - 1 ? _increment : _increment * n;
+        Xn = (decimal)_increment * n;
         N = n;
-        x.setArgumentValue(Xn);
+        // x.setArgumentValue(MathF.Round(Xn, DigitsNumber));
+        x.setArgumentValue((float)Math.Round(Xn, 5));
         return new(
-            MathF.Round((float)x.getArgumentValue(), DigitsNumber),
-            MathF.Round((float)y.getArgumentValue(), DigitsNumber)
+           MathF.Round((float)x.getArgumentValue(), 5),
+           MathF.Round((float)y.getArgumentValue(), 5)
             );
     }
 
@@ -58,7 +60,7 @@ public partial class MovementModel
         set
         {
             xBorder = value;
-            Xn = xBorder;
+            Xn = (decimal)xBorder;
         }
     }
 }

@@ -1,9 +1,9 @@
-TextureRect
 Label
+VBoxContainer
+HBoxContainer
+TextureRect
 Button
 Control
-HBoxContainer
-VBoxContainer
 Sprite2D
 PanelContainer
 Panel

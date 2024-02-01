@@ -52,7 +52,7 @@ public class CheckPointStorageModel
 
     public void CheckCoordsCoincidence(List<Vector2> queue)
     {
-        queue = queue.Select(c => c.Round()).ToList();
+        // queue = queue.Select(c => c.Round()).ToList();
         bool contains = true;
         for (int i = 0; i < _checkPointCoords.Count && contains; i++)
         {

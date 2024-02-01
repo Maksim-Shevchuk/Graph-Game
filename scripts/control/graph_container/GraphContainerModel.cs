@@ -41,6 +41,8 @@ public partial class GraphContainerModel
 		levelLoader.NextLevel();
 	}
 
+	public bool IsNextLevelAvilable() => levelLoader.CheckNextLevelAvailability();
+
 	private GraphContainerModel() { }
 
 	public static GraphContainerModel Instance { get => instance ??= new(); }

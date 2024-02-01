@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public class CoordsUtils
@@ -17,15 +18,17 @@ public class CoordsUtils
     public static Vector2 ToWorldCoords(Vector2 globalCoords)
     {
         return new(
-            (globalCoords.X - gameAreaRect.X - margin) / interval,
-            (gameAreaRect.Y - margin - globalCoords.Y) / interval
+            MathF.Round((globalCoords.X - gameAreaRect.X - margin) / interval, 5),
+            MathF.Round((gameAreaRect.Y - margin - globalCoords.Y) / interval, 5)
             );
     }
 
     public static Vector2 ToScreenCoords(Vector2 relativeCoords)
     {
-        return new(relativeCoords.X * interval + realGameRect.X,
-            realGameRect.Y - relativeCoords.Y * interval);
+        return new(
+            MathF.Round(relativeCoords.X * interval + realGameRect.X , 5),
+            MathF.Round(realGameRect.Y - relativeCoords.Y * interval, 5)
+        );
     }
 
     public static int Margin

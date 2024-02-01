@@ -6,6 +6,9 @@ res://plot/plot_layer.tscn
 res://control/control.tscn
 res://control/play_area_container.tscn
 res://game/game.tscn
+res://control/control_layer.tscn
+res://main/level_menu/level_menu.tscn
+res://main/main_menu/main_menu.tscn
 res://scripts/control/ControlLayer.cs
 res://scripts/control/graph_container/GraphContainer.cs
 res://scripts/control/play_area/PlayArea.cs
@@ -22,5 +25,3 @@ res://scripts/plot/PlotLayer.cs
 res://scripts/scene_manager/SceneManager.cs
 res://scripts/scene_manager/SceneManagerRes.cs
 res://scripts/ship/Ship.cs
-res://control/control_layer.tscn
-res://main/level_menu/level_menu.tscn

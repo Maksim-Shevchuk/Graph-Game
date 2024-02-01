@@ -47,9 +47,9 @@ public partial class GraphContainer : PanelContainer
 	{
 		HelpPopUpContainer.Visible = false;
 		nextLevelButton.Disabled = !isWin;
-		if (!isWin)
+		if (!isWin || !model.IsNextLevelAvilable())
 		{
-			nextLevelLabel.Modulate = Colors.Gray; ;
+			nextLevelLabel.Modulate = Colors.Gray;
 		}
 		levelEndedContainer.Visible = true;
 		winOrLooseLabel.Text = isWin ? "You win!" : "You lose";

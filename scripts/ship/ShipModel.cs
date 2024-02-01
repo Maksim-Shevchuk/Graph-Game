@@ -43,7 +43,7 @@ public partial class ShipModel
             }
             else { noPointOutsideSquare = false; }
         }
-
+        
         PathBuilt?.Invoke(new Queue<Vector2>(path));
     }
 
@@ -52,6 +52,8 @@ public partial class ShipModel
         ModelDestroyed?.Invoke();
         return path.Contains(position);
     }
+
+    public bool JustContainsInPath(Vector2 pos) => path.Contains(pos);
 
     public void MovementStopped()
     {

@@ -23,12 +23,11 @@ public partial class CheckPointNode : Area2D
 		Vector2 relativeCoords = CoordsUtils.ToWorldCoords(position);
 		Label label = new()
 		{
-			// TODO: 
-			// add MathF.Round 
 			Visible = false,
 			Position = new(position.X + 15, position.Y + 15),
 			Text = $"({relativeCoords.X}; {relativeCoords.Y})"
 		};
+		label.Modulate = Colors.Black;
 		_tooltip = label;
 	}
 
@@ -44,8 +43,10 @@ public partial class CheckPointNode : Area2D
 
 	private void OnBodyEntered(Node2D body)
 	{
-		// QueueFree();
-		Visible = false;
+		if (ShipModel.Instance.JustContainsInPath(CoordsUtils.ToWorldCoords(Position)))
+		{
+			Visible = false;
+		}
 	}
 
 	public CheckPointNodeModel Model

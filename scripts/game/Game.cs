@@ -51,6 +51,8 @@ public partial class Game : Node2D
 		return false;
 	}
 
+	public bool CheckNextLevelAvailability() => level != levelAmount;
+
 	public static Game Instance => instance;
 	public int Level
 	{
