@@ -12,14 +12,6 @@ public partial class MovementModel
     private static float _increment = 0.1f;
     private float xBorder;
 
-    public static int DigitsNumber
-    {
-        get => _increment.ToString(System.Globalization.CultureInfo.InvariantCulture)
-            .SkipWhile(c => c != '.')
-            .Skip(1)
-            .Count();
-    }
-
     private int N = 0;
 
     private decimal Xn = 0;
@@ -39,10 +31,8 @@ public partial class MovementModel
 
     public Vector2 CalculatePosition(int n)
     {
-        // Xn += N == n - 1 ? _increment : _increment * n;
-        Xn = (decimal)_increment * n;
+        Xn += N == n - 1 ? (decimal)_increment : (decimal)_increment * n;
         N = n;
-        // x.setArgumentValue(MathF.Round(Xn, DigitsNumber));
         x.setArgumentValue((float)Math.Round(Xn, 5));
         return new(
            MathF.Round((float)x.getArgumentValue(), 5),

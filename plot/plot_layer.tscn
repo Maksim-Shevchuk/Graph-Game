@@ -16,3 +16,5 @@ script = ExtResource("1_jv2pr")
 script = ExtResource("2_rqxwj")
 checkPointPackedScene = ExtResource("3_bu4ym")
 obstaclePackedScene = ExtResource("5_es8xh")
+
+[node name="PathBuilder" type="Node2D" parent="."]

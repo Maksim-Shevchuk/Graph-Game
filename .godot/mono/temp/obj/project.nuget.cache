@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+KWrzVVrLUVEzxSm/seKWXgpJT1LsaaKoXuitjr1JTSzvqMi5vU/qM9AYYc8jTyQhbi2LFFTxDZ0T4LXXwghIg==",
+  "dgSpecHash": "J7pS1PUxSNYfgDZBUv8xWDD7jwYNnxBCu9usAhOwXidIyPyjbwExwyRMWb3vXVFsseBWAwxCcKB6RD6j6YqQqw==",
   "success": true,
-  "projectFilePath": "D:\\облако\\GraphGameRestored\\Graph Game.csproj",
+  "projectFilePath": "D:\\GameFactory\\Graph-Game\\Graph Game.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Максим\\.nuget\\packages\\godot.sourcegenerators\\4.2.0-beta.1\\godot.sourcegenerators.4.2.0-beta.1.nupkg.sha512",
     "C:\\Users\\Максим\\.nuget\\packages\\godotsharp\\4.2.0-beta.1\\godotsharp.4.2.0-beta.1.nupkg.sha512",

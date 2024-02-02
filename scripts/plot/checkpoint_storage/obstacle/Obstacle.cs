@@ -1,4 +1,5 @@
 using Godot;
+using GraphGame;
 using System;
 
 public partial class Obstacle : Area2D
@@ -15,9 +16,10 @@ public partial class Obstacle : Area2D
 		Label label = new()
 		{
 			Visible = false,
-			Position = new(position.X + 15, position.Y + 15),
+			Position = new(position.X + 15, position.Y + 10),
 			Text = $"({relativeCoords.X}; {relativeCoords.Y})"
 		};
+		label.Modulate = Colors.Black;
 		_tooltip = label;
 	}
 
@@ -33,8 +35,11 @@ public partial class Obstacle : Area2D
 
 	private void OnBodyEntered(Node2D body)
 	{
-		asteroid.Play("explode");
-		_controller.BodyInteractedWithObstacle(CoordsUtils.ToWorldCoords(Position));
+		if (ShipModel.Instance.JustContainsInPath(CoordsUtils.ToWorldCoords(Position)))
+		{
+			asteroid.Play("explode");
+			_controller.BodyInteractedWithObstacle(CoordsUtils.ToWorldCoords(Position));
+		}
 	}
 
 	public ObstacleModel Model

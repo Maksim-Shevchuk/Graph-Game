@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\облако\\GraphGameRestored\\Graph Game.csproj": {}
+    "D:\\GameFactory\\Graph-Game\\Graph Game.csproj": {}
   },
   "projects": {
-    "D:\\облако\\GraphGameRestored\\Graph Game.csproj": {
+    "D:\\GameFactory\\Graph-Game\\Graph Game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\облако\\GraphGameRestored\\Graph Game.csproj",
+        "projectUniqueName": "D:\\GameFactory\\Graph-Game\\Graph Game.csproj",
         "projectName": "Graph Game",
-        "projectPath": "D:\\облако\\GraphGameRestored\\Graph Game.csproj",
+        "projectPath": "D:\\GameFactory\\Graph-Game\\Graph Game.csproj",
         "packagesPath": "C:\\Users\\Максим\\.nuget\\packages\\",
-        "outputPath": "D:\\облако\\GraphGameRestored\\.godot\\mono\\temp\\obj\\",
+        "outputPath": "D:\\GameFactory\\Graph-Game\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Максим\\AppData\\Roaming\\NuGet\\NuGet.Config",

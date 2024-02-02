@@ -31,7 +31,7 @@ public partial class ShipModel
 
     private void FindPath()
     {
-        int i = 1;
+        int i = 0;
         bool noPointOutsideSquare = true;
         while (noPointOutsideSquare)
         {

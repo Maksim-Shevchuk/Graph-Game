@@ -1,1 +1,1 @@
-{"Id":6,"Interval":40,"Margin":20,"StartPosition":{"x":0,"y":0},"CheckpointDictCoords":[{"x":1,"y":1},{"x":4,"y":2}],"ObstacleDictCoords":[{"x":3.5,"y":3.5}],"ExtraInputEnabled":true}
+{"Id":6,"Interval":70,"Margin":20,"StartPosition":{"x":0,"y":0},"CheckpointDictCoords":[{"x":0,"y":10},{"x":6,"y":8},{"x":8,"y":6}, {"x":10,"y":0}],"ObstacleDictCoords":[{"x":3.5,"y":3.5}],"ExtraInputEnabled":true}

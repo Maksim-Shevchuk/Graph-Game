@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://csjac3bhrqyar"]
+[gd_scene load_steps=55 format=3 uid="uid://csjac3bhrqyar"]
 
 [ext_resource type="Script" path="res://scripts/control/play_area/PlayArea.cs" id="1_xb56u"]
 [ext_resource type="Script" path="res://scripts/control/graph_container/GraphContainer.cs" id="2_gdcf5"]
@@ -78,6 +78,12 @@ subpixel_positioning = 0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l8q2r"]
 
+[sub_resource type="InputEventAction" id="InputEventAction_p8hek"]
+action = &"run_button_clicked"
+
+[sub_resource type="Shortcut" id="Shortcut_2srgd"]
+events = [SubResource("InputEventAction_p8hek")]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vs3d0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4e4m"]
@@ -87,6 +93,12 @@ subpixel_positioning = 0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m3l2k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpgnl"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_vqht6"]
+action = &"help_button_clicked"
+
+[sub_resource type="Shortcut" id="Shortcut_0ftfb"]
+events = [SubResource("InputEventAction_vqht6")]
 
 [sub_resource type="SystemFont" id="SystemFont_0ki7g"]
 subpixel_positioning = 0
@@ -134,6 +146,7 @@ nextLevelLabel = NodePath("WinOrLoseContainer/VBoxContainer/HBoxContainer/Next/L
 HelpPopUpContainer = NodePath("HelpPopUpContainer")
 
 [node name="WinOrLoseContainer" type="PanelContainer" parent="GraphContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -250,6 +263,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HelpPopUpContainer" type="PanelContainer" parent="GraphContainer"]
+visible = false
 custom_minimum_size = Vector2(620, 692)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -435,6 +449,8 @@ theme_override_styles/read_only = SubResource("StyleBoxEmpty_it1bd")
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+tooltip_text = "Run ship (Enter)"
+focus_mode = 1
 theme_override_constants/h_separation = 20
 theme_override_constants/icon_max_width = 0
 theme_override_font_sizes/font_size = 24
@@ -443,6 +459,8 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_unw3l")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_gjm3a")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_6vavn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_l8q2r")
+shortcut = SubResource("Shortcut_2srgd")
+shortcut_in_tooltip = false
 
 [node name="Separator" type="Control" parent="ButtonsContainer/PanelContainer/VBoxContainer/InputContainer"]
 layout_mode = 2
@@ -450,11 +468,15 @@ layout_mode = 2
 [node name="HelpButton" type="Button" parent="ButtonsContainer/PanelContainer/VBoxContainer/InputContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+tooltip_text = "Help menu (Alt+H)"
+focus_mode = 1
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vs3d0")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_g4e4m")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_enue8")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_m3l2k")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_kpgnl")
+shortcut = SubResource("Shortcut_0ftfb")
+shortcut_in_tooltip = false
 
 [node name="Separator2" type="Control" parent="ButtonsContainer/PanelContainer/VBoxContainer/InputContainer"]
 custom_minimum_size = Vector2(20, 0)

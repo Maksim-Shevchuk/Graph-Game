@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Godot;
 using org.mariuszgromada.math.mxparser;
 
@@ -41,10 +43,10 @@ public partial class Game : Node2D
 
 	public bool NextLevel()
 	{
-		//todo
 		if (level != levelAmount)
 		{
 			level++;
+			PlayArea.InformationFromFields = PlayArea.InformationFromFields.Select(i => "").ToArray();
 			RestartLevel();
 			return true;
 		}

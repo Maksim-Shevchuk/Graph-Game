@@ -24,7 +24,7 @@ public partial class CheckPointNode : Area2D
 		Label label = new()
 		{
 			Visible = false,
-			Position = new(position.X + 15, position.Y + 15),
+			Position = new(position.X + 15, position.Y + 10),
 			Text = $"({relativeCoords.X}; {relativeCoords.Y})"
 		};
 		label.Modulate = Colors.Black;
