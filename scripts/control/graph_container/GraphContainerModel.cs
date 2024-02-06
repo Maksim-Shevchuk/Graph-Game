@@ -46,4 +46,8 @@ public partial class GraphContainerModel
 	private GraphContainerModel() { }
 
 	public static GraphContainerModel Instance { get => instance ??= new(); }
+
+	public Vector2 LeftUpperCorner { get => leftUpperCorner; }
+
+	public Rect2 GraphContainerRect { get => graphContainerRect; }
 }

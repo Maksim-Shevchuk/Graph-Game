@@ -1,6 +1,3 @@
-using System;
-using Godot;
-
 namespace GraphGame;
 
 public partial class PlayAreaController
@@ -12,9 +9,13 @@ public partial class PlayAreaController
 
     public void HandleRunButtonPressed(string mathExpression, float xZero, float delta)
     {
-        model.HandleMathExpression(mathExpression, xZero , delta);
+        model.HandleMathExpression(mathExpression, xZero, delta);
     }
 
+    public void VisualizePath(string mathExpression, float xZero, float delta)
+    {
+        model.VisualizePath(mathExpression, xZero, delta);
+    }
 
     public static PlayAreaController Instance { get => instance ??= new(); }
 

@@ -1,3 +1,4 @@
+res://scripts/plot/path_builder
 res://scripts/scene_manager
 res://scripts
 res://scripts/main/level_menu
@@ -19,4 +20,3 @@ res://Assets/Checkpoint
 C:/Users/Максим/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Visual Studio Code
 res://Plot
 res://Control
-res://Game

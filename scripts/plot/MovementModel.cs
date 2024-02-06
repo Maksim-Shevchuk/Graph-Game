@@ -9,11 +9,9 @@ public partial class MovementModel
 {
     private static MovementModel instance;
     private string mathExp;
-    private static float _increment = 0.1f;
+    private float _increment = 0.1f;
     private float xBorder;
-
     private int N = 0;
-
     private decimal Xn = 0;
 
     private Argument x = new("x");
@@ -31,13 +29,29 @@ public partial class MovementModel
 
     public Vector2 CalculatePosition(int n)
     {
-        Xn += N == n - 1 ? (decimal)_increment : (decimal)_increment * n;
+        // Xn += N == n - 1 ? (decimal)_increment : (decimal)_increment * n;
+        Xn = (decimal)_increment * n;
         N = n;
         x.setArgumentValue((float)Math.Round(Xn, 5));
         return new(
            MathF.Round((float)x.getArgumentValue(), 5),
            MathF.Round((float)y.getArgumentValue(), 5)
             );
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+            return false;
+
+        MovementModel other = (MovementModel)obj;
+        return mathExp == other.mathExp &&
+               _increment == other._increment &&
+               xBorder == other.xBorder;
+    }
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(mathExp, _increment, xBorder);
     }
 
     public float Increment

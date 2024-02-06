@@ -2,6 +2,7 @@ using Godot;
 using GraphGame;
 using org.mariuszgromada.math.mxparser;
 using System;
+using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 
 public partial class PlayArea : VBoxContainer
@@ -27,6 +28,7 @@ public partial class PlayArea : VBoxContainer
 		expandedInput.Visible = false;
 		HelpPopUpContainer.Visible = false;
 		model.ChangeVisibilityExpandedInput += ChangeVisibilityExpandedInput;
+		model.StopPhysics += StopVisualizingPath;
 		functionLineEdit.InsertTextAtCaret(informationFromFields[0]);
 		xZeroLineEdit.InsertTextAtCaret(informationFromFields[1]);
 		deltaLineEdit.InsertTextAtCaret(informationFromFields[2]);
@@ -36,6 +38,12 @@ public partial class PlayArea : VBoxContainer
 	public override void _ExitTree()
 	{
 		model.ChangeVisibilityExpandedInput -= ChangeVisibilityExpandedInput;
+		model.StopPhysics -= StopVisualizingPath;
+	}
+
+	public void StopVisualizingPath()
+	{
+		SetPhysicsProcess(false);
 	}
 
 	public override void _ShortcutInput(InputEvent @event)
@@ -45,17 +53,34 @@ public partial class PlayArea : VBoxContainer
 			OnRunButtonPressed();
 		}
 	}
-
+	private int count = 0;
 	public override void _PhysicsProcess(double delta)
 	{
-		base._PhysicsProcess(delta);
+		if (count != 75)
+		{
+			count++;
+		}
+		else
+		{
+			count = 0;
+			string function = functionLineEdit.Text.Replace("\\s", "").ToLower();
+			Argument y = new(function, new Argument("x"));
+			bool syntax = y.checkSyntax();
+			if (syntax)
+			{
+				bool isXZeroParsed = float.TryParse(xZeroLineEdit.Text.Replace(".", ","), out float xZero);
+				bool isDeltaParsed = float.TryParse(deltaLineEdit.Text.Replace(".", ","), out float deltaLe);
+				xZero = isXZeroParsed ? xZero : float.NaN;
+				deltaLe = isDeltaParsed ? deltaLe : float.NaN;
+				controller.VisualizePath(function, xZero, deltaLe);
+			}
+		}
 	}
 
 	private void OnRunButtonPressed()
 	{
 		if (!string.IsNullOrEmpty(functionLineEdit.Text))
 		{
-			Regex functionRegex = new("^y=x?.+");
 			string function = functionLineEdit.Text.Replace("\\s", "").ToLower();
 			Argument y = new(function, new Argument("x"));
 			bool syntax = y.checkSyntax();

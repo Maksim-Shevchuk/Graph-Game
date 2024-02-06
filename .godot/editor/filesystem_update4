@@ -1,9 +1,9 @@
-res://control/play_area_container.tscn
+res://ship/ship.tscn
 res://scripts/plot/checkpoint_storage/checkpoint/CheckPointNode.cs
 res://scripts/control/ControlScene.cs
-res://ship/ship.tscn
 res://plot/plot_layer.tscn
 res://control/control.tscn
+res://control/play_area_container.tscn
 res://game/game.tscn
 res://control/control_layer.tscn
 res://main/main_menu/main_menu.tscn
@@ -21,6 +21,7 @@ res://scripts/plot/axises/Axises.cs
 res://scripts/plot/checkpoint_storage/CheckPointStorage.cs
 res://scripts/plot/checkpoint_storage/CheckPointStorageController.cs
 res://scripts/plot/checkpoint_storage/obstacle/Obstacle.cs
+res://scripts/plot/path_builder/PathBuilder.cs
 res://scripts/plot/PlotLayer.cs
 res://scripts/scene_manager/SceneManager.cs
 res://scripts/scene_manager/SceneManagerRes.cs
