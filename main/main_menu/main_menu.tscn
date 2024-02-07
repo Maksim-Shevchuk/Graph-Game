@@ -1,13 +1,30 @@
-[gd_scene load_steps=11 format=3 uid="uid://da2iaajjlf2bw"]
+[gd_scene load_steps=20 format=3 uid="uid://da2iaajjlf2bw"]
 
 [ext_resource type="Script" path="res://scripts/main/main_menu/MainMenu.cs" id="1_wct35"]
 [ext_resource type="Texture2D" uid="uid://bkcm1tw7ajtrg" path="res://Assets/Ui/level_without_inputs.png" id="2_rcrw8"]
 [ext_resource type="Texture2D" uid="uid://du6j33ipah7xp" path="res://Assets/Ui/button.png" id="3_hjobj"]
+[ext_resource type="Texture2D" uid="uid://brosopgrm1cgq" path="res://Assets/Ui/HelpPopUp.png" id="3_msbhx"]
+[ext_resource type="Theme" uid="uid://b51np8pmmltbs" path="res://main/main_menu/main_menu.tres" id="4_knwhd"]
 
 [sub_resource type="SystemFont" id="SystemFont_qr44v"]
 font_names = PackedStringArray("Impact")
 font_italic = true
 subpixel_positioning = 0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2y7hx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bbnbj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_paia5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7o2i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eb33a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aj2e0"]
+
+[sub_resource type="SystemFont" id="SystemFont_agxjm"]
+font_names = PackedStringArray("Impact")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3y6c3"]
 
@@ -23,7 +40,7 @@ subpixel_positioning = 0
 font_names = PackedStringArray("Impact")
 subpixel_positioning = 0
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("settingsContainer", "mainMenuButtonsContainer", "easyModeCheckBox")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,6 +49,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wct35")
 sceneNamesEnum = 2
+settingsContainer = NodePath("TextureRect/MarginContainer/HBoxContainer/SettingsContainer")
+mainMenuButtonsContainer = NodePath("TextureRect/MarginContainer/HBoxContainer/MainMenuButtonsContainer")
+easyModeCheckBox = NodePath("TextureRect/MarginContainer/HBoxContainer/SettingsContainer/Sprite2D/VBoxContainer/HBoxContainer/EasyModeCheckBox")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -78,15 +98,91 @@ vertical_alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/HBoxContainer"]
+[node name="SettingsContainer" type="PanelContainer" parent="TextureRect/MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2y7hx")
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect/MarginContainer/HBoxContainer/SettingsContainer"]
+position = Vector2(307, 564)
+texture = ExtResource("3_msbhx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/HBoxContainer/SettingsContainer/Sprite2D"]
+offset_left = -307.0
+offset_top = -564.0
+offset_right = 293.0
+offset_bottom = 496.0
+
+[node name="Separator" type="Control" parent="TextureRect/MarginContainer/HBoxContainer/SettingsContainer/Sprite2D/VBoxContainer"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+
+[node name="ContainerForCloseButton" type="HBoxContainer" parent="TextureRect/MarginContainer/HBoxContainer/SettingsContainer/Sprite2D/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="TextureRect/MarginContainer/HBoxContainer/SettingsContainer/Sprite2D/VBoxContainer/ContainerForCloseButton"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseButton" type="Button" parent="TextureRect/MarginContainer/HBoxContainer/SettingsContainer/Sprite2D/VBoxContainer/ContainerForCloseButton"]
+custom_minimum_size = Vector2(50, 65)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bbnbj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_paia5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n7o2i")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_eb33a")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aj2e0")
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/SettingsContainer/Sprite2D/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = SubResource("SystemFont_qr44v")
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator2" type="Control" parent="TextureRect/MarginContainer/HBoxContainer/SettingsContainer/Sprite2D/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/HBoxContainer/SettingsContainer/Sprite2D/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/SettingsContainer/Sprite2D/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Easy Mode: In this game mode, 
+crystals are collected upon contact 
+with the ship rather than requiring 
+precise coordinate matching."
+mouse_filter = 1
+theme_override_fonts/font = SubResource("SystemFont_agxjm")
+theme_override_font_sizes/font_size = 30
+text = "Easy mode"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="TextureRect/MarginContainer/HBoxContainer/SettingsContainer/Sprite2D/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="EasyModeCheckBox" type="CheckBox" parent="TextureRect/MarginContainer/HBoxContainer/SettingsContainer/Sprite2D/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_knwhd")
+
+[node name="MainMenuButtonsContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 70
 alignment = 1
 
-[node name="Separator" type="Control" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Separator" type="Control" parent="TextureRect/MarginContainer/HBoxContainer/MainMenuButtonsContainer"]
 layout_mode = 2
 
-[node name="PlayButton" type="Button" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="TextureRect/MarginContainer/HBoxContainer/MainMenuButtonsContainer"]
 custom_minimum_size = Vector2(220, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
@@ -98,12 +194,12 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_de2e5")
 text = "Play
 "
 
-[node name="Sprite2D" type="Sprite2D" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/PlayButton"]
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect/MarginContainer/HBoxContainer/MainMenuButtonsContainer/PlayButton"]
 position = Vector2(114, 41)
 scale = Vector2(1.29885, 1)
 texture = ExtResource("3_hjobj")
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/PlayButton"]
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/MainMenuButtonsContainer/PlayButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -117,7 +213,7 @@ text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionsButton" type="Button" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="TextureRect/MarginContainer/HBoxContainer/MainMenuButtonsContainer"]
 custom_minimum_size = Vector2(220, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
@@ -129,12 +225,12 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_de2e5")
 text = "Play
 "
 
-[node name="Sprite2D" type="Sprite2D" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/OptionsButton"]
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect/MarginContainer/HBoxContainer/MainMenuButtonsContainer/OptionsButton"]
 position = Vector2(114, 41)
 scale = Vector2(1.29885, 1)
 texture = ExtResource("3_hjobj")
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/OptionsButton"]
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/MainMenuButtonsContainer/OptionsButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -148,7 +244,7 @@ text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="QuitButton" type="Button" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="TextureRect/MarginContainer/HBoxContainer/MainMenuButtonsContainer"]
 custom_minimum_size = Vector2(220, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
@@ -160,12 +256,12 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_de2e5")
 text = "Play
 "
 
-[node name="Sprite2D" type="Sprite2D" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/QuitButton"]
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect/MarginContainer/HBoxContainer/MainMenuButtonsContainer/QuitButton"]
 position = Vector2(114, 41)
 scale = Vector2(1.29885, 1)
 texture = ExtResource("3_hjobj")
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/QuitButton"]
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/MainMenuButtonsContainer/QuitButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -179,6 +275,8 @@ text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/PlayButton" to="." method="OnPlayButtonPressed"]
-[connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/OptionsButton" to="." method="OnOptionsPressed"]
-[connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="OnQuitButtonPressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/SettingsContainer/Sprite2D/VBoxContainer/ContainerForCloseButton/CloseButton" to="." method="OnCloseButtonPressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/SettingsContainer/Sprite2D/VBoxContainer/HBoxContainer/EasyModeCheckBox" to="." method="OnCheckBoxPressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/MainMenuButtonsContainer/PlayButton" to="." method="OnPlayButtonPressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/MainMenuButtonsContainer/OptionsButton" to="." method="OnOptionsPressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/MainMenuButtonsContainer/QuitButton" to="." method="OnQuitButtonPressed"]

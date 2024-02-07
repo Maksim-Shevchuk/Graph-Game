@@ -2,6 +2,7 @@ using Godot;
 using GraphGame;
 using org.mariuszgromada.math.mxparser;
 using System;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 
@@ -53,6 +54,12 @@ public partial class PlayArea : VBoxContainer
 			OnRunButtonPressed();
 		}
 	}
+
+	public void FlushLineEditInputs()
+	{
+		informationFromFields = informationFromFields.Select(f => f = "").ToArray();
+	}
+
 	private int count = 0;
 	public override void _PhysicsProcess(double delta)
 	{

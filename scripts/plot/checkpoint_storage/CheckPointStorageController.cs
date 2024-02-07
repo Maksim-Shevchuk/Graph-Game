@@ -9,5 +9,10 @@ public partial class CheckPointStorageController : Resource
 
     private CheckPointStorageController() { }
 
+    public void IsLevelWon(bool isNoNodeVisible)
+    {
+        model.IsLevelWon(isNoNodeVisible);
+    }
+
     public static CheckPointStorageController Instance { get => instance ?? new(); }
 }

@@ -22,5 +22,9 @@ public partial class ObstacleController
     public void BodyInteractedWithObstacle(Vector2 position)
     {
         _model.BodyInteractedWithObstacle(position);
+    } 
+    public void BodyInteractedWithObstacle()
+    {
+        _model.BodyInteractedWithObstacle();
     }
 }

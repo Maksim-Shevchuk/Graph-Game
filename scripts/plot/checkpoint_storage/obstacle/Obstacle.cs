@@ -8,6 +8,7 @@ public partial class Obstacle : Area2D
 	private ObstacleModel _model;
 	private ObstacleController _controller;
 	private Label _tooltip;
+	private bool isEasyMode = Game.Instance.IsEasyModeEnabled;
 
 	public void AttachTooltipTooltip(Vector2 position)
 	{
@@ -35,10 +36,20 @@ public partial class Obstacle : Area2D
 
 	private void OnBodyEntered(Node2D body)
 	{
-		if (ShipModel.Instance.JustContainsInPath(CoordsUtils.ToWorldCoords(Position)))
+		if (!isEasyMode)
 		{
+			if (ShipModel.Instance.JustContainsInPath(CoordsUtils.ToWorldCoords(Position)))
+			{
+				Ship.Instance.Visible = false;
+				asteroid.Play("explode");
+				_controller.BodyInteractedWithObstacle(CoordsUtils.ToWorldCoords(Position));
+			}
+		}
+		else
+		{
+			Ship.Instance.Visible = false;
 			asteroid.Play("explode");
-			_controller.BodyInteractedWithObstacle(CoordsUtils.ToWorldCoords(Position));
+			_controller.BodyInteractedWithObstacle();
 		}
 	}
 

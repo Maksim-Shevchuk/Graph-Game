@@ -1,6 +1,7 @@
 res://ship/ship.tscn
 res://scripts/plot/checkpoint_storage/checkpoint/CheckPointNode.cs
 res://scripts/control/ControlScene.cs
+res://main/main_menu/main_menu.tres
 res://plot/plot_layer.tscn
 res://control/control.tscn
 res://control/play_area_container.tscn

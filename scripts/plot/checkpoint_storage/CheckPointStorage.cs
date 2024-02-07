@@ -1,5 +1,8 @@
 using Godot;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 
 namespace GraphGame;
 
@@ -29,6 +32,7 @@ public partial class CheckPointStorage : Node2D
 		model.AddObstacleWithLabel += AddObstacles;
 		model.CheckPointChangeVisibility += CheckPointVisibilityChanged;
 		model.ObstacleChangeVisibility += ObstacleVisibilityChanged;
+		model.CheckVisibilityCheckPoints += CheckVisibilityCheckPoints;
 	}
 
 	public override void _ExitTree()
@@ -37,6 +41,7 @@ public partial class CheckPointStorage : Node2D
 		model.AddObstacleWithLabel -= AddObstacles;
 		model.CheckPointChangeVisibility -= CheckPointVisibilityChanged;
 		model.ObstacleChangeVisibility -= ObstacleVisibilityChanged;
+		model.CheckVisibilityCheckPoints -= CheckVisibilityCheckPoints;
 	}
 
 	private void AddCheckPoints(List<CheckPointNodeModel> checkPointsModels, List<Vector2> checkPointCoords)
@@ -81,6 +86,13 @@ public partial class CheckPointStorage : Node2D
 	{
 		Label tooltip = obstacleViews.Find(cp => cp.Position == position).Tooltip;
 		tooltip.Visible = isVisible;
+	}
+
+	private void CheckVisibilityCheckPoints()
+	{
+		int visibleNodes = checkPointsViews.Select(i => i.Visible).Count(i => i == true);
+		bool isNoNodeVisible = visibleNodes > 0 ? false : true;
+		controller.IsLevelWon(isNoNodeVisible);
 	}
 
 	public static CheckPointStorage Instance { get => instance; }

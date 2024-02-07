@@ -9,7 +9,7 @@ public partial class CheckPointNode : Area2D
 	private CheckPointNodeModel _model;
 	private CheckPointNodeController _controller;
 	private Label _tooltip;
-
+	private bool isEasyMode = Game.Instance.IsEasyModeEnabled;
 	public CheckPointNode() { }
 
 	public override void _Ready()
@@ -43,10 +43,19 @@ public partial class CheckPointNode : Area2D
 
 	private void OnBodyEntered(Node2D body)
 	{
-		if (ShipModel.Instance.JustContainsInPath(CoordsUtils.ToWorldCoords(Position)))
+		if (!isEasyMode)
 		{
+			if (ShipModel.Instance.JustContainsInPath(CoordsUtils.ToWorldCoords(Position)))
+			{
+				Visible = false;
+			}
+		}
+		else
+		{
+			int j =0;
 			Visible = false;
 		}
+
 	}
 
 	public CheckPointNodeModel Model

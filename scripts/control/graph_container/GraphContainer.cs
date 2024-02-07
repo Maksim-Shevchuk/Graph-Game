@@ -33,6 +33,7 @@ public partial class GraphContainer : PanelContainer
 
 	public void OnHomePressed()
 	{
+		PlayArea.Instance.FlushLineEditInputs();
 		SceneManager.Instance.ChangeScene(sceneNamesEnum);
 		// GetTree().ChangeSceneToPacked(mainScene);
 		// GetTree().ChangeSceneToFile("res://main/main.tscn");

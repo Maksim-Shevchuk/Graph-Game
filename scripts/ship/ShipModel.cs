@@ -12,7 +12,6 @@ public partial class ShipModel
     private CheckPointStorageModel checkPointStorageModel = CheckPointStorageModel.Instance;
     private MovementModel movementModel;
     private Queue<Vector2> path;
-
     public event Action<Vector2> ModelUpdated;
     public event Action<Queue<Vector2>> PathBuilt;
     public event Action ModelDestroyed;
@@ -42,8 +41,7 @@ public partial class ShipModel
                 i++;
             }
             else { noPointOutsideSquare = false; }
-        }
-        
+        }        
         PathBuilt?.Invoke(new Queue<Vector2>(path));
     }
 
@@ -57,7 +55,16 @@ public partial class ShipModel
 
     public void MovementStopped()
     {
-        checkPointStorageModel.CheckCoordsCoincidence(path.ToList());
+        var gameState = JsonSerializerUtils.DeserializeGameState();
+        if (!gameState.IsEasyModeEnabled)
+        {
+            checkPointStorageModel.CheckCoordsCoincidence(path.ToList());
+        } 
+        else
+        {
+            checkPointStorageModel.IsAllCheckPointsInvisible();
+        }
+
     }
 
     public static ShipModel Instance { get => instance ??= new(); }

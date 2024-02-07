@@ -16,6 +16,7 @@ public partial class Game : Node2D
 
 	[Export] private ControlLayer _controlLayer;
 	private static int level = 3;
+	private bool isEasyModeEnabled;
 	private string levelPath => $"scripts/level/json/level{level}.json";
 	private int levelAmount => Directory.GetFiles(@"scripts\level\json").Length;
 
@@ -23,6 +24,7 @@ public partial class Game : Node2D
 	{
 		instance = this;
 		License.iConfirmNonCommercialUse("GraphGame");
+		isEasyModeEnabled = JsonSerializerUtils.DeserializeGameState().IsEasyModeEnabled;
 		Init();
 	}
 
@@ -63,5 +65,11 @@ public partial class Game : Node2D
 		{
 			level = value;
 		}
+	}
+
+	public bool IsEasyModeEnabled
+	{
+		get => isEasyModeEnabled;
+		set => isEasyModeEnabled = value;
 	}
 }

@@ -12,13 +12,13 @@ public class CheckPointStorageModel
     private List<ObstacleModel> obstacleModels;
     private List<Vector2> _checkPointCoords;
     private List<Vector2> _obstacleCoords;
-
     private CheckPointStorageModel() { }
 
     public event Action<List<CheckPointNodeModel>, List<Vector2>> AddCheckPointWithLabel;
     public event Action<List<ObstacleModel>, List<Vector2>> AddObstacleWithLabel;
     public event Action<Vector2, bool> CheckPointChangeVisibility;
     public event Action<Vector2, bool> ObstacleChangeVisibility;
+    public event Action CheckVisibilityCheckPoints;
 
     public void Init(List<Vector2> checkPointCoords, List<Vector2> obstacleCoords)
     {
@@ -52,7 +52,6 @@ public class CheckPointStorageModel
 
     public void CheckCoordsCoincidence(List<Vector2> queue)
     {
-        // queue = queue.Select(c => c.Round()).ToList();
         bool contains = true;
         for (int i = 0; i < _checkPointCoords.Count && contains; i++)
         {
@@ -62,6 +61,16 @@ public class CheckPointStorageModel
             }
         }
         GraphContainerModel.Instance.LevelEnded(contains);
+    }
+
+    public void IsAllCheckPointsInvisible()
+    {
+        CheckVisibilityCheckPoints?.Invoke();
+    }
+
+    public void IsLevelWon(bool isNoNodeVisible)
+    {
+        GraphContainerModel.Instance.LevelEnded(isNoNodeVisible);
     }
 
     public static CheckPointStorageModel Instance { get => instance ??= new(); }

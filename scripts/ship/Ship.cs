@@ -15,7 +15,7 @@ public partial class Ship : CharacterBody2D
 	private float targetAngle;
 	private Vector2 fromPos;
 	private float timelerped = 1;
-
+	
 	private Ship() { }
 
 	public override void _Ready()

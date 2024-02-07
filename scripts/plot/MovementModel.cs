@@ -29,8 +29,7 @@ public partial class MovementModel
 
     public Vector2 CalculatePosition(int n)
     {
-        // Xn += N == n - 1 ? (decimal)_increment : (decimal)_increment * n;
-        Xn = (decimal)_increment * n;
+        Xn = (decimal)_increment * n + (decimal)xBorder;
         N = n;
         x.setArgumentValue((float)Math.Round(Xn, 5));
         return new(

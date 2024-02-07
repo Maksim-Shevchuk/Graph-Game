@@ -16,7 +16,6 @@ public partial class LevelMenu : Control
 
 	public override void _Ready()
 	{
-		// levelMenuModel.Init();
 		levelMenuModel.ModelUpdated += AddLevelButtons;
 		levelMenuModel.RunCurrentLevel += RunSelectedLevel;
 		AddLevelButtons(count);

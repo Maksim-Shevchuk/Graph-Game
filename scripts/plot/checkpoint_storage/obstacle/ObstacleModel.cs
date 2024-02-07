@@ -19,4 +19,9 @@ public partial class ObstacleModel
             GraphContainerModel.Instance.LevelEnded(false);
         }
     }
+
+    public void BodyInteractedWithObstacle()
+    {
+        GraphContainerModel.Instance.LevelEnded(false);
+    }
 }

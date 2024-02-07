@@ -9,6 +9,21 @@ namespace GraphGame;
 
 public class JsonSerializerUtils
 {
+    private static string gameStatePath =  $"scripts/level/GameState.json";
+    public static void SerializeGameState(GameState gameState)
+    {
+        using (FileStream fs = new(gameStatePath, FileMode.Truncate))
+        {
+            JsonSerializer.Serialize<GameState>(fs, gameState);
+        } 
+    }
+
+    public static GameState DeserializeGameState()
+    {
+        using FileStream fs = new(gameStatePath, FileMode.Open);
+        return JsonSerializer.Deserialize<GameState>(fs);
+    } 
+
     public static void SerializeLevelInfo(string path, LevelInfo levelInfo)
     {
         using (FileStream fs = new(path, FileMode.OpenOrCreate))
